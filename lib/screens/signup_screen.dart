@@ -98,4 +98,22 @@ Widget customTextField(String labelText, TextEditingController controller,
     );
   }
 
+void switchRole(bool toBuyer) {
+    setState(() {
+      isBuyer = toBuyer;
+      if (toBuyer) {
+        // Clear Seller-specific fields when switching to Buyer
+        displayNameController.clear();
+        addressController.clear();
+      } else {
+        // Clear Buyer-specific fields when switching to Seller
+        usernameController.clear();
+        passwordController.clear();
+        confirmPasswordController.clear();
+        emailController.clear();
+        phoneNumberController.clear();
+      }
+    });
+  }
+
 }
