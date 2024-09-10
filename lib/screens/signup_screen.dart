@@ -71,4 +71,31 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
     );
   }
 
+Widget customTextField(String labelText, TextEditingController controller,
+      {bool obscureText = false,
+      bool isPasswordField = false,
+      bool isConfirmPasswordField = false,
+      TextInputType keyboardType = TextInputType.text}) {
+    return Container(
+      decoration: BoxDecoration(
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black26,
+            blurRadius: 4,
+            offset: Offset(0, 2),
+          ),
+        ],
+        borderRadius: BorderRadius.circular(16.0),
+      ),
+      child: TextField(
+        controller: controller,
+        obscureText: obscureText,
+        keyboardType: keyboardType,
+        decoration: customInputDecoration(labelText,
+            isPasswordField: isPasswordField,
+            isConfirmPasswordField: isConfirmPasswordField),
+      ),
+    );
+  }
+
 }
