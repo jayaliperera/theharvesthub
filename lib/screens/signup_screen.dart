@@ -116,6 +116,164 @@ void switchRole(bool toBuyer) {
     });
   }
 
+void switchRole(bool toBuyer) {
+    setState(() {
+      isBuyer = toBuyer;
+      if (toBuyer) {
+        // Clear Seller-specific fields when switching to Buyer
+        displayNameController.clear();
+        addressController.clear();
+      } else {
+        // Clear Buyer-specific fields when switching to Seller
+        usernameController.clear();
+        passwordController.clear();
+        confirmPasswordController.clear();
+        emailController.clear();
+        phoneNumberController.clear();
+      }
+    });
+  }
+ 
+ 
+@override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Image.asset(
+                  'assets/images/logo_new.png',
+                  height: 100,
+                ),
+                const SizedBox(height: 20),
+                const Text(
+                  'Register',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () {
+                          switchRole(true);
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: isBuyer ? Colors.green : Colors.black,
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              bottomLeft: Radius.circular(10),
+                            ),
+                          ),
+                          padding: const EdgeInsets.symmetric(vertical: 12),
+                          child: const Center(
+                            child: Text(
+                              'Buyer',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () {
+                          switchRole(false);
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: !isBuyer ? Colors.green : Colors.black,
+                            borderRadius: const BorderRadius.only(
+                              topRight: Radius.circular(10),
+                              bottomRight: Radius.circular(10),
+                            ),
+                          ),
+                          padding: const EdgeInsets.symmetric(vertical: 12),
+                          child: const Center(
+                            child: Text(
+                              'Seller',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                if (!isBuyer) customTextField('Name', displayNameController),
+                if (!isBuyer) const SizedBox(height: 10),
+                if (!isBuyer) customTextField('Address', addressController),
+                if (!isBuyer) const SizedBox(height: 10),
+                customTextField('Username', usernameController),
+                const SizedBox(height: 10),
+                customTextField(
+                  'Password',
+                  passwordController,
+                  obscureText: !isPasswordVisible,
+                  isPasswordField: true,
+                ),
+                const SizedBox(height: 10),
+                customTextField(
+                  'Confirm Password',
+                  confirmPasswordController,
+                  obscureText: !isConfirmPasswordVisible,
+                  isConfirmPasswordField: true,
+                ),
+                const SizedBox(height: 10),
+                customTextField('Email', emailController),
+                const SizedBox(height: 10),
+                customTextField('Phone Number', phoneNumberController,
+                    keyboardType: TextInputType.phone),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    // Navigate to the HomeScreen
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginScreen()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 12.0,
+                      horizontal: 40.0,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                  child: const Text(
+                    'Register',
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+ 
 
 
 }
