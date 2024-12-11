@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:theharvesthub/forgot_password_screen.dart';
-import 'package:theharvesthub/home_screen.dart';
-import 'packagetheharvesthub/signup_screen.dart';
+import 'package:theharvesthub/screens/fogetpasswordpage.dart';
+import 'package:theharvesthub/screens/homepage.dart';
+import 'package:theharvesthub/screens/signup_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -18,7 +18,7 @@ class LoginScreen extends StatelessWidget {
     return InputDecoration(
       labelText: labelText,
       filled: true,
-      fillColor: Colors.white,
+      fillColor: const Color.fromARGB(255, 221, 255, 187),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(16.0),
         borderSide: BorderSide.none,
@@ -58,4 +58,118 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Image.asset(
+                  "assets/images/logo.png",
+                  height: 100,
+                ),
+                const SizedBox(height: 20),
+                const Text(
+                  'Log In',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                customTextField('Username'),
+                const SizedBox(height: 20),
+                customTextField(
+                  'Password',
+                  obscureText: true,
+                ),
+                const SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Checkbox(
+                          value: false,
+                          onChanged: (bool? value) {
+                            // Handle the checkbox state
+                          },
+                        ),
+                        const Text('Remember me'),
+                      ],
+                    ),
+                    TextButton(
+                      onPressed: () => _handleForgotPassword(context),
+                      child: const Text(
+                        'Forgot password?',
+                        style: TextStyle(
+                          color: Colors.red,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    // Navigate to the HomeScreen
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const HomePage()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 12.0,
+                      horizontal: 40.0,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                  child: const Text(
+                    'Log in',
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text("Don't you have an account?"),
+                    TextButton(
+                      onPressed: () {
+                        // Navigate to the registration screen
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SignUp_Screen(),
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        'Register',
+                        style: TextStyle(
+                          color: Colors.blue,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

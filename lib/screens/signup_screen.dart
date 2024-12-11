@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:theharvesthub/login_screen.dart';
+import 'package:theharvesthub/screens/loginpage.dart';
 
 class SignUp_Screen extends StatefulWidget {
   const SignUp_Screen({super.key});
+
   @override
   State<SignUp_Screen> createState() => _SignUp_ScreenState();
 }
+
 class _SignUp_ScreenState extends State<SignUp_Screen> {
   bool isBuyer = true;
   bool isPasswordVisible = false;
   bool isConfirmPasswordVisible = false;
+
   final TextEditingController displayNameController = TextEditingController();
   final TextEditingController addressController = TextEditingController();
   final TextEditingController usernameController = TextEditingController();
@@ -18,12 +21,13 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
       TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneNumberController = TextEditingController();
+
   InputDecoration customInputDecoration(String labelText,
       {bool isPasswordField = false, bool isConfirmPasswordField = false}) {
     return InputDecoration(
       labelText: labelText,
       filled: true,
-      fillColor: Colors.white,
+      fillColor: Color.fromARGB(255, 221, 255, 187),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(16.0),
         borderSide: BorderSide.none,
@@ -71,7 +75,7 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
     );
   }
 
-Widget customTextField(String labelText, TextEditingController controller,
+  Widget customTextField(String labelText, TextEditingController controller,
       {bool obscureText = false,
       bool isPasswordField = false,
       bool isConfirmPasswordField = false,
@@ -98,7 +102,7 @@ Widget customTextField(String labelText, TextEditingController controller,
     );
   }
 
-void switchRole(bool toBuyer) {
+  void switchRole(bool toBuyer) {
     setState(() {
       isBuyer = toBuyer;
       if (toBuyer) {
@@ -116,26 +120,7 @@ void switchRole(bool toBuyer) {
     });
   }
 
-void switchRole(bool toBuyer) {
-    setState(() {
-      isBuyer = toBuyer;
-      if (toBuyer) {
-        // Clear Seller-specific fields when switching to Buyer
-        displayNameController.clear();
-        addressController.clear();
-      } else {
-        // Clear Buyer-specific fields when switching to Seller
-        usernameController.clear();
-        passwordController.clear();
-        confirmPasswordController.clear();
-        emailController.clear();
-        phoneNumberController.clear();
-      }
-    });
-  }
- 
- 
-@override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
@@ -146,7 +131,7 @@ void switchRole(bool toBuyer) {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image.asset(
-                  'assets/images/logo_new.png',
+                  'assets/images/logo.png',
                   height: 100,
                 ),
                 const SizedBox(height: 20),
@@ -272,8 +257,4 @@ void switchRole(bool toBuyer) {
       ),
     );
   }
-
- 
-
-
 }

@@ -20,7 +20,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     return InputDecoration(
       labelText: labelText,
       filled: true,
-      fillColor: Colors.white,
+      fillColor: const Color.fromARGB(255, 221, 255, 187),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(16.0),
         borderSide: BorderSide.none,
@@ -94,7 +94,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         decoration: InputDecoration(
           counterText: '',
           filled: true,
-          fillColor: Colors.white,
+          fillColor: const Color.fromARGB(255, 221, 255, 187),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8.0),
             borderSide: BorderSide.none,
@@ -136,7 +136,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Image.asset(
-                  "assets/images/logo_new.png",
+                  "assets/images/logo.png",
                   height: 100,
                 ),
                 const SizedBox(height: 20),
