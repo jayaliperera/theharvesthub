@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'HarvestHub Mobile App',
-      theme: ThemeData.light(), 
+      theme: ThemeData.light(),
       home: const SplashScreen(),
     );
   }
