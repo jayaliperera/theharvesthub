@@ -14,7 +14,8 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  InputDecoration customInputDecoration(String labelText, {bool isPasswordField = false}) {
+  InputDecoration customInputDecoration(String labelText,
+      {bool isPasswordField = false}) {
     return InputDecoration(
       labelText: labelText,
       filled: true,
@@ -31,14 +32,17 @@ class LoginScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(16.0),
         borderSide: BorderSide.none,
       ),
-      contentPadding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+      contentPadding:
+          const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
       floatingLabelBehavior: FloatingLabelBehavior.auto,
       labelStyle: TextStyle(color: Colors.grey[700]),
       hintStyle: TextStyle(color: Colors.grey[400]),
     );
   }
 
-  Widget customTextField(String labelText, {bool obscureText = false, TextInputType keyboardType = TextInputType.text}) {
+  Widget customTextField(String labelText,
+      {bool obscureText = false,
+      TextInputType keyboardType = TextInputType.text}) {
     return Container(
       decoration: BoxDecoration(
         boxShadow: const [
@@ -53,7 +57,8 @@ class LoginScreen extends StatelessWidget {
       child: TextField(
         obscureText: obscureText,
         keyboardType: keyboardType,
-        decoration: customInputDecoration(labelText, isPasswordField: obscureText),
+        decoration:
+            customInputDecoration(labelText, isPasswordField: obscureText),
       ),
     );
   }
