@@ -232,5 +232,5 @@ class AuctionProductUI extends StatelessWidget {
       ),
     );
   }
-
+}
 
