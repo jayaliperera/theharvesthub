@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:theharvesthub/screens/loginpage.dart';
+import 'package:theharvesthub/screens/seller screens/dashboard.dart'; // Import Dashboard
 
 class SignUp_Screen extends StatefulWidget {
   const SignUp_Screen({super.key});
@@ -225,11 +225,11 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    // Navigate to the HomeScreen
-                    Navigator.push(
+                    // Navigate to the Dashboard screen
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const LoginScreen()),
+                          builder: (context) => const Dashboard()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
