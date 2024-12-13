@@ -67,7 +67,7 @@ class _ProductSummaryState extends State<ProductSummary> {
               child: Column(
                 children: [
                   Image.asset(
-                    'assets/image/cabbage.png', // Corrected path
+                    'assets/image/cabbage.png',
                     height: 120,
                   ),
                   const SizedBox(height: 10),
@@ -95,9 +95,7 @@ class _ProductSummaryState extends State<ProductSummary> {
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 TextButton(
-                  onPressed: () {
-                    // Add edit functionality
-                  },
+                  onPressed: () {},
                   child: const Text("Edit"),
                 ),
               ],
