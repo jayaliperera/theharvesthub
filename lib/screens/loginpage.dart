@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:theharvesthub/screens/buyer%20screens/buyer_dashboard.dart';
 import 'package:theharvesthub/screens/fogetpasswordpage.dart';
+import 'package:theharvesthub/screens/seller%20screens/product_listing.dart';
 import 'package:theharvesthub/screens/signup_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -126,7 +127,7 @@ class LoginScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const BuyerDashboard()),
+                          builder: (context) => const product_listing()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
