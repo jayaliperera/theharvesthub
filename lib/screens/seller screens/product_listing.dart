@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:theharvesthub/screens/seller%20screens/Added.dart';
+import 'package:theharvesthub/screens/seller%20screens/dashboard.dart';
 
 // ignore: camel_case_types
 class product_listing extends StatelessWidget {
@@ -116,7 +116,8 @@ class product_listing extends StatelessWidget {
                     // Navigate to the HomeScreen
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const Added()),
+                      MaterialPageRoute(
+                          builder: (context) => const Dashboard()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
