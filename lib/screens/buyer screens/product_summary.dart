@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:theharvesthub/screens/buyer%20screens/paymentmethod.dart';
 
 void main() {
   runApp(const MyApp());
@@ -163,8 +163,10 @@ class _ProductSummaryState extends State<ProductSummary> {
                 ElevatedButton(
                   onPressed: () {
                     // Pay Now functionality
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("Payment Successful")),
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const paymentmethod()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
