@@ -77,6 +77,64 @@ class Productdetails extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              const SizedBox(height: 35),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                ElevatedButton(
+                  onPressed: () {
+                    // Navigate to the HomeScreen
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const product_listing(),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 12.0,
+                      horizontal: 40.0,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                  child: const Text(
+                    'Add TO Cart',
+                    style: TextStyle(
+                      fontSize: 15.0,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const product_listing(),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 12.0,
+                      horizontal: 40.0,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                  child: const Text(
+                    'Place Oder',
+                    style: TextStyle(
+                      fontSize: 15.0,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ])
             ],
           ),
         ),
