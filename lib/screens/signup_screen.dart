@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:theharvesthub/screens/login_screen.dart';
+import 'package:theharvesthub/screens/buyer%20screens/product_summary.dart';
 
 class SignUp_Screen extends StatefulWidget {
   const SignUp_Screen({super.key});
@@ -27,7 +27,7 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
     return InputDecoration(
       labelText: labelText,
       filled: true,
-      fillColor: Color.fromARGB(255, 221, 255, 187),
+      fillColor: const Color.fromARGB(255, 221, 255, 187),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(16.0),
         borderSide: BorderSide.none,
@@ -229,7 +229,7 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const LoginScreen()),
+                          builder: (context) => const ProductSummary()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
