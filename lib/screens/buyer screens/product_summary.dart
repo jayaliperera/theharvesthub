@@ -1,51 +1,7 @@
-
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: ProductSummary(),
-    );
-  }
-}
-
-class ProductSummary extends StatefulWidget {
+class ProductSummary extends StatelessWidget {
   const ProductSummary({super.key});
-
-  @override
-  _ProductSummaryState createState() => _ProductSummaryState();
-}
-
-class _ProductSummaryState extends State<ProductSummary> {
-  String specialInstructions = "";
-  int quantity = 2;
-  int selectedIndex = 0; // To track the selected tab.
-
-  void onBottomNavTap(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
-    // Navigation logic based on index
-    if (index == 0) {
-      // Navigate to Home
-    } else if (index == 1) {
-      // Navigate to Cart
-    } else if (index == 2) {
-      // Navigate to Auction
-    } else if (index == 3) {
-      // Navigate to Orders
-    } else if (index == 4) {
-      // Navigate to Profile
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,148 +11,144 @@ class _ProductSummaryState extends State<ProductSummary> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pop(context); // Navigates back to the previous screen
+            Navigator.pop(context);
           },
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: Column(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: Column(
+                  children: [
+                    Image.asset(
+                      'assets/images/cabbage.png',
+                      height: 120,
+                    ),
+                    const SizedBox(height: 10),
+                    const Text(
+                      "Cabbage",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    const Text(
+                      "LKR 600.00",
+                      style: TextStyle(fontSize: 18, color: Colors.grey),
+                    ),
+                    const Text(
+                      "Quantity: 2 Kg",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Image.asset(
-                    'assets/image/cabbage.png',
-                    height: 120,
-                  ),
-                  const SizedBox(height: 10),
                   const Text(
-                    "Cabbage",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    "Order placed by",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
-                  const Text(
-                    "LKR 600.00",
-                    style: TextStyle(fontSize: 18, color: Colors.grey),
-                  ),
-                  Text(
-                    "Quantity: $quantity Kg",
-                    style: const TextStyle(fontSize: 16),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text("Edit"),
                   ),
                 ],
               ),
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  "Order placed by",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: const Text("Edit"),
-                ),
-              ],
-            ),
-            const Text(
-              "Jayali Lakna Perera,\nNo. 48/3/2, Heenatikumbura Road,\nBattaramulla",
-              style: TextStyle(fontSize: 16),
-            ),
-            const SizedBox(height: 10),
-            const Text(
-              "Confirm your address before you place your order",
-              style: TextStyle(fontSize: 14, color: Colors.red),
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              "Special Instructions",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 5),
-            TextField(
-              onChanged: (value) {
-                setState(() {
-                  specialInstructions = value;
-                });
-              },
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                hintText:
-                    'Please write any specific instructions to the seller regarding your order',
+              const Text(
+                "Jayali Lakna Perera,\nNo. 48/3/2, Heenatikumbura Road,\nBattaramulla",
+                style: TextStyle(fontSize: 16),
               ),
-              maxLines: 4,
-            ),
-            const SizedBox(height: 20),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Delivery Charge :",
-                  style: TextStyle(fontSize: 16),
+              const SizedBox(height: 10),
+              const Text(
+                "Confirm your address before you place your order",
+                style: TextStyle(fontSize: 14, color: Colors.red),
+              ),
+              const SizedBox(height: 20),
+              const Text(
+                "Special Instructions",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 5),
+              const TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText:
+                      'Please write any specific instructions to the seller regarding your order',
                 ),
-                Text(
-                  "300.00",
-                  style: TextStyle(fontSize: 16),
-                ),
-              ],
-            ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Total :",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  "900.00",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    // Pay Now functionality
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("Payment Successful")),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(150, 50),
-                    backgroundColor: Colors.green,
+                maxLines: 4,
+              ),
+              const SizedBox(height: 20),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Delivery Charge :",
+                    style: TextStyle(fontSize: 16),
                   ),
-                  child: const Text("Pay Now", style: TextStyle(fontSize: 18)),
-                ),
-                const SizedBox(width: 20),
-                OutlinedButton(
-                  onPressed: () {
-                    // Cancel Order functionality
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("Order Cancelled")),
-                    );
-                  },
-                  style: OutlinedButton.styleFrom(
-                    side: const BorderSide(color: Colors.red),
-                    minimumSize: const Size(150, 50),
+                  Text(
+                    "300.00",
+                    style: TextStyle(fontSize: 16),
                   ),
-                  child: const Text("Cancel Order",
-                      style: TextStyle(color: Colors.red, fontSize: 18)),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Total :",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    "900.00",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      // Pay Now functionality
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("Payment Successful")),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(150, 50),
+                      backgroundColor: Colors.green,
+                    ),
+                    child:
+                        const Text("Pay Now", style: TextStyle(fontSize: 18)),
+                  ),
+                  OutlinedButton(
+                    onPressed: () {
+                      // Cancel Order functionality
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("Order Cancelled")),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(150, 50),
+                      backgroundColor: Colors.green,
+                    ),
+                    child: const Text("Cancel Order",
+                        style: TextStyle(fontSize: 18)),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: selectedIndex,
-        onTap: onBottomNavTap,
-        items: const <BottomNavigationBarItem>[
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
