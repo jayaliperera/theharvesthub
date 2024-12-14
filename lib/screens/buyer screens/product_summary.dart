@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:theharvesthub/screens/login_screen.dart';
 
 class ProductSummary extends StatelessWidget {
   const ProductSummary({super.key});
@@ -36,7 +37,7 @@ class ProductSummary extends StatelessWidget {
                     ),
                     const Text(
                       "LKR 600.00",
-                      style: TextStyle(fontSize: 18, color: Colors.grey),
+                      style: TextStyle(fontSize: 18, color: Colors.black),
                     ),
                     const Text(
                       "Quantity: 2 Kg",
@@ -116,16 +117,18 @@ class ProductSummary extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () {
                       // Pay Now functionality
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text("Payment Successful")),
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(150, 50),
                       backgroundColor: Colors.green,
                     ),
-                    child:
-                        const Text("Pay Now", style: TextStyle(fontSize: 18)),
+                    child: const Text("Pay Now",
+                        style: TextStyle(fontSize: 18, color: Colors.black)),
                   ),
                   OutlinedButton(
                     onPressed: () {
@@ -139,7 +142,7 @@ class ProductSummary extends StatelessWidget {
                       backgroundColor: Colors.green,
                     ),
                     child: const Text("Cancel Order",
-                        style: TextStyle(fontSize: 18)),
+                        style: TextStyle(fontSize: 18, color: Colors.black)),
                   ),
                 ],
               ),
