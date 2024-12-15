@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:theharvesthub/screens/buyer%20screens/auctionproductdetails%C2%A0.dart';
 
 void main() {
   runApp(const MyApp());
@@ -162,9 +162,11 @@ class _ProductSummaryState extends State<ProductSummary> {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    // Pay Now functionality
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("Payment Successful")),
+                    // Navigate to AuctionProductDetails
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const auctionproductdetails()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -220,6 +222,31 @@ class _ProductSummaryState extends State<ProductSummary> {
         ],
         selectedItemColor: Colors.green,
         unselectedItemColor: Colors.grey,
+      ),
+    );
+  }
+}
+
+class AuctionProductDetails extends StatelessWidget {
+  const AuctionProductDetails({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Auction Product Details"),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context); // Navigate back
+          },
+        ),
+      ),
+      body: const Center(
+        child: Text(
+          "Welcome to Auction Product Details",
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
       ),
     );
   }
