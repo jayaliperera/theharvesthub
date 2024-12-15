@@ -1,6 +1,7 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:theharvesthub/screens/buyer%20screens/product_screen.dart';
 
 class BuyerDashboard extends StatefulWidget {
   const BuyerDashboard({super.key});
@@ -119,16 +120,27 @@ class _BuyerDashboardeState extends State<BuyerDashboard> {
                 padding:
                     const EdgeInsets.all(8), // Added padding for compact layout
                 physics: const NeverScrollableScrollPhysics(),
-                children: const [
-                  CategoryCard(
-                    imagePath: 'assets/images/category1.jpg',
-                    title: 'Vegetable',
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              const ProductScreen(), // navigate to product screen
+                        ),
+                      );
+                    },
+                    child: const CategoryCard(
+                      imagePath: 'assets/images/category1.jpg',
+                      title: 'Vegetable',
+                    ),
                   ),
-                  CategoryCard(
+                  const CategoryCard(
                     imagePath: 'assets/images/category2.jpg',
                     title: 'Fruit',
                   ),
-                  CategoryCard(
+                  const CategoryCard(
                     imagePath: 'assets/images/category3.jpg',
                     title: 'Seed',
                   ),
