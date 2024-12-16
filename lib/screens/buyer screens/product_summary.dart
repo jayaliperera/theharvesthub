@@ -27,133 +27,219 @@ class ProductSummary extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            // Add back navigation
+            Navigator.pop(context);
           },
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: Column(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: Column(
+                  children: [
+                    Image.asset(
+                      'assets/images/cabbage.png',
+                      height: 120,
+                    ),
+                    const SizedBox(height: 10),
+                    const Text(
+                      "Cabbage",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    const Text(
+                      "LKR 600.00",
+                      style: TextStyle(fontSize: 18, color: Colors.grey),
+                    ),
+                    const Text(
+                      "Quantity: 2 Kg",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Image.network(
-                    'https://t4.ftcdn.net/jpg/00/32/09/57/360_F_32095781_CsyOETUW3ksonb7MxH4PzYfu2SPw6Lv8.jpg',
-                    height: 120,
-                  ),
-                  const SizedBox(height: 10),
                   const Text(
-                    "Cabbage",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    "Order placed by",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
-                  const Text(
-                    "LKR 600.00",
-                    style: TextStyle(fontSize: 18, color: Colors.grey),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text("Edit"),
                   ),
-                  const Text(
-                    "Quantity: 2 Kg",
+                ],
+              ),
+              const Text(
+                "Jayali Lakna Perera,\nNo. 48/3/2, Heenatikumbura Road,\nBattaramulla",
+                style: TextStyle(fontSize: 16),
+              ),
+              const SizedBox(height: 10),
+              const Text(
+                "Confirm your address before you place your order",
+                style: TextStyle(fontSize: 14, color: Colors.red),
+              ),
+              const SizedBox(height: 20),
+              const Text(
+                "Special Instructions",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 5),
+              const TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText:
+                      'Please write any specific instructions to the seller regarding your order',
+                ),
+                maxLines: 4,
+              ),
+              const SizedBox(height: 20),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Delivery Charge :",
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  Text(
+                    "300.00",
                     style: TextStyle(fontSize: 16),
                   ),
                 ],
               ),
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  "Order placed by",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-                TextButton(
-                  onPressed: () {
-                    // Edit button functionality
-                  },
-                  child: const Text("Edit"),
-                ),
-              ],
-            ),
-            const Text(
-              "Jayali Lakna Perera,\nNo. 48/3/2, Heenatikumbura Road,\nBattaramulla",
-              style: TextStyle(fontSize: 16),
-            ),
-            const SizedBox(height: 10),
-            const Text(
-              "Confirm your address before you place your order",
-              style: TextStyle(fontSize: 14, color: Colors.red),
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              "Special Instructions",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 5),
-            const TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText:
-                    'Please write any specific instructions to the seller regarding your order',
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Total :",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    "900.00",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                ],
               ),
-              maxLines: 4,
-            ),
-            const SizedBox(height: 20),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Delivery Charge :",
-                  style: TextStyle(fontSize: 16),
-                ),
-                Text(
-                  "300.00",
-                  style: TextStyle(fontSize: 16),
-                ),
-              ],
-            ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Total :",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  "900.00",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    // Pay Now functionality
-                  },
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(150, 50),
-                    backgroundColor: Colors.green,
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      // Show Payment Method Popup
+                      showModalBottomSheet(
+                        context: context,
+                        shape: const RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.vertical(top: Radius.circular(20)),
+                        ),
+                        builder: (BuildContext context) {
+                          return SizedBox(
+                            height: 300,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Padding(
+                                  padding: EdgeInsets.all(16.0),
+                                  child: Text(
+                                    "Select Payment Method",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                ListTile(
+                                  leading: const Icon(Icons.credit_card,
+                                      color: Colors.blue),
+                                  title: const Text("Credit Card"),
+                                  trailing: const Text(
+                                    "VISA",
+                                    style: TextStyle(
+                                      color: Colors.blue,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                          content:
+                                              Text("Credit Card Selected")),
+                                    );
+                                  },
+                                ),
+                                ListTile(
+                                  leading: const Icon(Icons.money,
+                                      color: Colors.green),
+                                  title: const Text("Cash"),
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                          content: Text("Cash Selected")),
+                                    );
+                                  },
+                                ),
+                                const Spacer(),
+                                Center(
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        const SnackBar(
+                                            content:
+                                                Text("Proceeding to Payment")),
+                                      );
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.green,
+                                      foregroundColor: Colors.white,
+                                      minimumSize: const Size(200, 50),
+                                    ),
+                                    child: const Text("Proceed"),
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                              ],
+                            ),
+                          );
+                        },
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(150, 50),
+                      backgroundColor: Colors.green,
+                      foregroundColor: Colors.black,
+                    ),
+                    child:
+                        const Text("Pay Now", style: TextStyle(fontSize: 18)),
                   ),
-                  child: const Text("Pay Now", style: TextStyle(fontSize: 18)),
-                ),
-                const SizedBox(width: 20),
-                OutlinedButton(
-                  onPressed: () {
-                    // Cancel Order functionality
-                  },
-                  style: OutlinedButton.styleFrom(
-                    side: const BorderSide(color: Colors.red),
-                    minimumSize: const Size(150, 50),
+                  const SizedBox(width: 20),
+                  OutlinedButton(
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("Order Cancelled")),
+                      );
+                    },
+                    style: OutlinedButton.styleFrom(
+                      minimumSize: const Size(150, 50),
+                      backgroundColor: Colors.green,
+                      foregroundColor: Colors.black,
+                    ),
+                    child: const Text("Cancel Order",
+                        style: TextStyle(color: Colors.red, fontSize: 18)),
                   ),
-                  child: const Text("Cancel Order",
-                      style: TextStyle(color: Colors.red, fontSize: 18)),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
