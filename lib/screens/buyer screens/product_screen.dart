@@ -110,22 +110,22 @@ class _ProductScreenState extends State<ProductScreen> {
                 childAspectRatio: 3 / 3,
                 children: [
                   buildVegetableCard(
-                    'assets/images/Carrot.jpg',
-                    'Carrot',
+                    'assets/images/tomato.jpeg',
+                    'Tomato',
                     'Rs.600/Kg',
                   ),
                   buildVegetableCard(
-                    'assets/images/cauliflower.jpg',
+                    'assets/images/cauliflower.jpeg',
                     'Cauliflower',
                     'Rs.450/Kg',
                   ),
                   buildVegetableCard(
-                    'assets/images/beet.jpg',
+                    'assets/images/beet.jpeg',
                     'Beets',
                     'Rs.100/Kg',
                   ),
                   buildVegetableCard(
-                    'assets/images/cabbage 2.jpg',
+                    'assets/images/cabbage.png',
                     'Cabbage',
                     'Rs.300/Kg',
                   ),
@@ -195,7 +195,7 @@ class _ProductScreenState extends State<ProductScreen> {
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.black,
-              fontSize: 14,
+              fontSize: 12,
             ),
           ),
         ],
