@@ -127,7 +127,7 @@ class LoginScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const BuyerDashboard()),
+                          builder: (context) => const product_listing()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
