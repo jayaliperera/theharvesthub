@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+
 class ProductSummary extends StatelessWidget {
   const ProductSummary({super.key});
 
@@ -131,6 +132,13 @@ class ProductSummary extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
+
+                      showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        builder: (BuildContext context) {
+                          return const PaymentMethodPopup();
+
                       // Show Payment Method Popup
                       showModalBottomSheet(
                         context: context,
@@ -210,6 +218,7 @@ class ProductSummary extends StatelessWidget {
                               ],
                             ),
                           );
+
                         },
                       );
                     },
@@ -267,6 +276,83 @@ class ProductSummary extends StatelessWidget {
         ],
         selectedItemColor: Colors.green,
         unselectedItemColor: Colors.grey,
+      ),
+    );
+  }
+}
+
+class PaymentMethodPopup extends StatelessWidget {
+  const PaymentMethodPopup({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(
+        left: 16.0,
+        right: 16.0,
+        top: 16.0,
+        bottom: MediaQuery.of(context).viewInsets.bottom + 16.0,
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const Text(
+            "Select Payment Method",
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {
+              // Handle Credit Card selection
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.grey[200],
+              foregroundColor: Colors.black,
+              padding: const EdgeInsets.all(16),
+            ),
+            child: const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Credit Card"),
+                Text("VISA", style: TextStyle(color: Colors.blue)),
+              ],
+            ),
+          ),
+          const SizedBox(height: 10),
+          ElevatedButton(
+            onPressed: () {
+              // Handle Cash selection
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.grey[200],
+              foregroundColor: Colors.black,
+              padding: const EdgeInsets.all(16),
+            ),
+            child: const Align(
+              alignment: Alignment.centerLeft,
+              child: Text("Cash"),
+            ),
+          ),
+          const SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {
+              // Proceed functionality
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text("Proceeding with payment...")),
+              );
+              Navigator.pop(context);
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.green,
+              minimumSize: const Size(double.infinity, 50),
+            ),
+            child: const Text(
+              "Proceed",
+              style: TextStyle(fontSize: 18, color: Colors.white),
+            ),
+          ),
+        ],
       ),
     );
   }
