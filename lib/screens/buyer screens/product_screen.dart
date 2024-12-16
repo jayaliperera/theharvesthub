@@ -43,10 +43,10 @@ class _ProductScreenState extends State<ProductScreen> {
               height: 30,
             ),
             const SizedBox(width: 10),
-            Text(
-              'HarvestHub',
+            const Text(
+              'Vegetables',
               style: TextStyle(
-                color: Colors.blue[700],
+                color: Colors.black,
                 fontWeight: FontWeight.w700,
                 fontSize: 20,
               ),
@@ -60,11 +60,6 @@ class _ProductScreenState extends State<ProductScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Vegetables',
-                style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 10),
               TextField(
                 decoration: InputDecoration(
                   prefixIcon: const Icon(Icons.search),
@@ -111,8 +106,8 @@ class _ProductScreenState extends State<ProductScreen> {
                     const NeverScrollableScrollPhysics(), // Prevents nested scrolling
                 crossAxisCount: 2,
                 crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-                childAspectRatio: 3 / 2.5,
+                mainAxisSpacing: 20,
+                childAspectRatio: 3 / 3,
                 children: [
                   buildVegetableCard(
                     'assets/images/Carrot.jpg',
@@ -167,42 +162,44 @@ class _ProductScreenState extends State<ProductScreen> {
   }
 
   Widget buildVegetableCard(String imagePath, String title, String price) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Card(
-          elevation: 5,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: Image.asset(
-              imagePath,
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: 100, // Adjusted height
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Card(
+            elevation: 5,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Image.asset(
+                imagePath,
+                fit: BoxFit.fill,
+                width: double.infinity,
+                height: 120, // Adjusted height
+              ),
             ),
           ),
-        ),
-        const SizedBox(height: 5),
-        Text(
-          title,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 14,
+          const SizedBox(height: 5),
+          Text(
+            title,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
           ),
-        ),
-        const SizedBox(height: 3),
-        Text(
-          price,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-            fontSize: 12,
+          const SizedBox(height: 3),
+          Text(
+            price,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              fontSize: 14,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

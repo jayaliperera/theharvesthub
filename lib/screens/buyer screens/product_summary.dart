@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'package:theharvesthub/screens/buyer%20screens/paymentmethod.dart';
-
-
+import 'package:theharvesthub/screens/buyer%20screens/paymentmethod.dart';
+import 'package:theharvesthub/screens/login_screen.dart';
 
 class ProductSummary extends StatelessWidget {
   const ProductSummary({super.key});
@@ -87,9 +86,9 @@ class ProductSummary extends StatelessWidget {
                 maxLines: 4,
               ),
               const SizedBox(height: 20),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: const [
                   Text(
                     "Delivery Charge :",
                     style: TextStyle(fontSize: 16),
@@ -100,9 +99,10 @@ class ProductSummary extends StatelessWidget {
                   ),
                 ],
               ),
-              const Row(
+              const SizedBox(height: 10),
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: const [
                   Text(
                     "Total :",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -113,87 +113,42 @@ class ProductSummary extends StatelessWidget {
                   ),
                 ],
               ),
-
-              maxLines: 4,
-            ),
-            const SizedBox(height: 20),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Delivery Charge :",
-                  style: TextStyle(fontSize: 16),
-                ),
-                Text(
-                  "300.00",
-                  style: TextStyle(fontSize: 16),
-                ),
-              ],
-            ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Total :",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  "900.00",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    // Pay Now functionality
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const paymentmethod()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(150, 50),
-                    backgroundColor: Colors.green,
-
               const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      // Pay Now functionality
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const LoginScreen()),
+                          builder: (context) => const paymentmethod(),
+                        ),
                       );
                     },
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(150, 50),
                       backgroundColor: Colors.green,
                     ),
-                    child: const Text("Pay Now",
-                        style: TextStyle(fontSize: 18, color: Colors.black)),
-
+                    child: const Text(
+                      "Pay Now",
+                      style: TextStyle(fontSize: 18, color: Colors.white),
+                    ),
                   ),
                   OutlinedButton(
                     onPressed: () {
-                      // Cancel Order functionality
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text("Order Cancelled")),
                       );
                     },
-                    style: ElevatedButton.styleFrom(
+                    style: OutlinedButton.styleFrom(
                       minimumSize: const Size(150, 50),
-                      backgroundColor: Colors.green,
+                      side: const BorderSide(color: Colors.green),
                     ),
-                    child: const Text("Cancel Order",
-                        style: TextStyle(fontSize: 18, color: Colors.black)),
+                    child: const Text(
+                      "Cancel Order",
+                      style: TextStyle(fontSize: 18, color: Colors.black),
+                    ),
                   ),
                 ],
               ),
