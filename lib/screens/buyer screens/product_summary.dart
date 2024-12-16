@@ -1,5 +1,22 @@
 import 'package:flutter/material.dart';
 
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: ProductSummary(),
+    );
+  }
+}
+
+
 class ProductSummary extends StatelessWidget {
   const ProductSummary({super.key});
 
@@ -36,7 +53,7 @@ class ProductSummary extends StatelessWidget {
                     ),
                     const Text(
                       "LKR 600.00",
-                      style: TextStyle(fontSize: 18, color: Colors.black),
+                      style: TextStyle(fontSize: 18, color: Colors.grey),
                     ),
                     const Text(
                       "Quantity: 2 Kg",
@@ -115,21 +132,105 @@ class ProductSummary extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
+
                       showModalBottomSheet(
                         context: context,
                         isScrollControlled: true,
                         builder: (BuildContext context) {
                           return const PaymentMethodPopup();
+
+                      // Show Payment Method Popup
+                      showModalBottomSheet(
+                        context: context,
+                        shape: const RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.vertical(top: Radius.circular(20)),
+                        ),
+                        builder: (BuildContext context) {
+                          return SizedBox(
+                            height: 300,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Padding(
+                                  padding: EdgeInsets.all(16.0),
+                                  child: Text(
+                                    "Select Payment Method",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                ListTile(
+                                  leading: const Icon(Icons.credit_card,
+                                      color: Colors.blue),
+                                  title: const Text("Credit Card"),
+                                  trailing: const Text(
+                                    "VISA",
+                                    style: TextStyle(
+                                      color: Colors.blue,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                          content:
+                                              Text("Credit Card Selected")),
+                                    );
+                                  },
+                                ),
+                                ListTile(
+                                  leading: const Icon(Icons.money,
+                                      color: Colors.green),
+                                  title: const Text("Cash"),
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                          content: Text("Cash Selected")),
+                                    );
+                                  },
+                                ),
+                                const Spacer(),
+                                Center(
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        const SnackBar(
+                                            content:
+                                                Text("Proceeding to Payment")),
+                                      );
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.green,
+                                      foregroundColor: Colors.white,
+                                      minimumSize: const Size(200, 50),
+                                    ),
+                                    child: const Text("Proceed"),
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                              ],
+                            ),
+                          );
+
                         },
                       );
                     },
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(150, 50),
                       backgroundColor: Colors.green,
+                      foregroundColor: Colors.black,
                     ),
-                    child: const Text("Pay Now",
-                        style: TextStyle(fontSize: 18, color: Colors.black)),
+                    child:
+                        const Text("Pay Now", style: TextStyle(fontSize: 18)),
                   ),
+                  const SizedBox(width: 20),
                   OutlinedButton(
                     onPressed: () {
                       ScaffoldMessenger.of(context).showSnackBar(
@@ -139,9 +240,10 @@ class ProductSummary extends StatelessWidget {
                     style: OutlinedButton.styleFrom(
                       minimumSize: const Size(150, 50),
                       backgroundColor: Colors.green,
+                      foregroundColor: Colors.black,
                     ),
                     child: const Text("Cancel Order",
-                        style: TextStyle(fontSize: 18, color: Colors.black)),
+                        style: TextStyle(color: Colors.red, fontSize: 18)),
                   ),
                 ],
               ),
@@ -150,7 +252,7 @@ class ProductSummary extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const [
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
