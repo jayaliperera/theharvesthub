@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:theharvesthub/screens/buyer%20screens/auctionproductdetails%C2%A0.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,35 +16,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class ProductSummary extends StatefulWidget {
+class ProductSummary extends StatelessWidget {
   const ProductSummary({super.key});
-
-  @override
-  _ProductSummaryState createState() => _ProductSummaryState();
-}
-
-class _ProductSummaryState extends State<ProductSummary> {
-  String specialInstructions = "";
-  int quantity = 2;
-  int selectedIndex = 0; // To track the selected tab.
-
-  void onBottomNavTap(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
-    // Navigation logic based on index
-    if (index == 0) {
-      // Navigate to Home
-    } else if (index == 1) {
-      // Navigate to Cart
-    } else if (index == 2) {
-      // Navigate to Auction
-    } else if (index == 3) {
-      // Navigate to Orders
-    } else if (index == 4) {
-      // Navigate to Profile
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +27,7 @@ class _ProductSummaryState extends State<ProductSummary> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pop(context); // Navigates back to the previous screen
+            // Add back navigation
           },
         ),
       ),
@@ -67,8 +39,8 @@ class _ProductSummaryState extends State<ProductSummary> {
             Center(
               child: Column(
                 children: [
-                  Image.asset(
-                    'assets/image/cabbage.png',
+                  Image.network(
+                    'https://t4.ftcdn.net/jpg/00/32/09/57/360_F_32095781_CsyOETUW3ksonb7MxH4PzYfu2SPw6Lv8.jpg',
                     height: 120,
                   ),
                   const SizedBox(height: 10),
@@ -80,9 +52,9 @@ class _ProductSummaryState extends State<ProductSummary> {
                     "LKR 600.00",
                     style: TextStyle(fontSize: 18, color: Colors.grey),
                   ),
-                  Text(
-                    "Quantity: $quantity Kg",
-                    style: const TextStyle(fontSize: 16),
+                  const Text(
+                    "Quantity: 2 Kg",
+                    style: TextStyle(fontSize: 16),
                   ),
                 ],
               ),
@@ -96,7 +68,9 @@ class _ProductSummaryState extends State<ProductSummary> {
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    // Edit button functionality
+                  },
                   child: const Text("Edit"),
                 ),
               ],
@@ -116,13 +90,8 @@ class _ProductSummaryState extends State<ProductSummary> {
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 5),
-            TextField(
-              onChanged: (value) {
-                setState(() {
-                  specialInstructions = value;
-                });
-              },
-              decoration: const InputDecoration(
+            const TextField(
+              decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 hintText:
                     'Please write any specific instructions to the seller regarding your order',
@@ -162,12 +131,7 @@ class _ProductSummaryState extends State<ProductSummary> {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    // Navigate to AuctionProductDetails
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const auctionproductdetails()),
-                    );
+                    // Pay Now functionality
                   },
                   style: ElevatedButton.styleFrom(
                     minimumSize: const Size(150, 50),
@@ -179,9 +143,6 @@ class _ProductSummaryState extends State<ProductSummary> {
                 OutlinedButton(
                   onPressed: () {
                     // Cancel Order functionality
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("Order Cancelled")),
-                    );
                   },
                   style: OutlinedButton.styleFrom(
                     side: const BorderSide(color: Colors.red),
@@ -196,8 +157,6 @@ class _ProductSummaryState extends State<ProductSummary> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: selectedIndex,
-        onTap: onBottomNavTap,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -222,31 +181,6 @@ class _ProductSummaryState extends State<ProductSummary> {
         ],
         selectedItemColor: Colors.green,
         unselectedItemColor: Colors.grey,
-      ),
-    );
-  }
-}
-
-class AuctionProductDetails extends StatelessWidget {
-  const AuctionProductDetails({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Auction Product Details"),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context); // Navigate back
-          },
-        ),
-      ),
-      body: const Center(
-        child: Text(
-          "Welcome to Auction Product Details",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
       ),
     );
   }
