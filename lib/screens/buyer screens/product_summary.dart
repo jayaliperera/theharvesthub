@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:theharvesthub/screens/buyer%20screens/buyer_dashboard.dart';
-import 'package:theharvesthub/screens/login_screen.dart';
+import 'package:theharvesthub/screens/common%20screens/login_screen.dart';
 
 class ProductSummary extends StatelessWidget {
   const ProductSummary({super.key});
