@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:theharvesthub/screens/buyer%20screens/buyer_dashboard.dart';
-import 'package:theharvesthub/screens/forgot_password_screen.dart';
-import 'package:theharvesthub/screens/seller%20screens/product_listing.dart';
-import 'package:theharvesthub/screens/signup_screen.dart';
+import 'package:theharvesthub/screens/common%20screens/forgot_password_screen.dart';
+import 'package:theharvesthub/screens/common%20screens/signup_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:theharvesthub/screens/splash_screen.dart';
+import 'package:theharvesthub/screens/common%20screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());

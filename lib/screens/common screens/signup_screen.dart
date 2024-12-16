@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:theharvesthub/screens/login_screen.dart';
+import 'package:theharvesthub/screens/common%20screens/login_screen.dart';
 
 class SignUp_Screen extends StatefulWidget {
   const SignUp_Screen({super.key});

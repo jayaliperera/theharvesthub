@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class auctionproductdetails extends StatelessWidget {
-  const auctionproductdetails({super.key});
+class AuctionProductDetails extends StatelessWidget {
+  const AuctionProductDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -172,6 +172,6 @@ class ConfirmBidPopup extends StatelessWidget {
 
 void main() {
   runApp(const MaterialApp(
-    home: auctionproductdetails(),
+    home: AuctionProductDetails(),
   ));
 }
