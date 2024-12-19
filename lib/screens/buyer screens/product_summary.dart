@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:theharvesthub/screens/buyer%20screens/buyer_dashboard.dart';
-import 'package:theharvesthub/screens/common%20screens/login_screen.dart';
 
 class ProductSummary extends StatelessWidget {
   const ProductSummary({super.key});
@@ -85,9 +83,9 @@ class ProductSummary extends StatelessWidget {
                 maxLines: 4,
               ),
               const SizedBox(height: 20),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Text(
                     "Delivery Charge :",
                     style: TextStyle(fontSize: 16),
@@ -99,9 +97,9 @@ class ProductSummary extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 10),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Text(
                     "Total :",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -118,11 +116,12 @@ class ProductSummary extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const BuyerDashboard(),
+                      showModalBottomSheet(
+                        context: context,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0),
                         ),
+                        builder: (context) => const PaymentMethodPopup(),
                       );
                     },
                     style: ElevatedButton.styleFrom(
