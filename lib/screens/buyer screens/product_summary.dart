@@ -1,24 +1,32 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: ProductSummary(),
-    );
-  }
-}
-
-
 class ProductSummary extends StatelessWidget {
   const ProductSummary({super.key});
+
+  Widget buildVegetableCard(
+      String imagePath, String title, String price, String quantity) {
+    return Column(
+      children: [
+        Image.asset(
+          imagePath,
+          height: 120,
+        ),
+        const SizedBox(height: 10),
+        Text(
+          title,
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        Text(
+          price,
+          style: const TextStyle(fontSize: 18, color: Colors.grey),
+        ),
+        Text(
+          "Quantity: $quantity",
+          style: const TextStyle(fontSize: 16),
+        ),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,27 +47,11 @@ class ProductSummary extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
-                child: Column(
-                  children: [
-                    Image.asset(
-                      'assets/images/cabbage.png',
-                      height: 120,
-                    ),
-                    const SizedBox(height: 10),
-                    const Text(
-                      "Cabbage",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                    const Text(
-                      "LKR 600.00",
-                      style: TextStyle(fontSize: 18, color: Colors.grey),
-                    ),
-                    const Text(
-                      "Quantity: 2 Kg",
-                      style: TextStyle(fontSize: 16),
-                    ),
-                  ],
+                child: buildVegetableCard(
+                  'assets/images/cabbage.png',
+                  "Cabbage",
+                  "LKR 600.00",
+                  "2 Kg",
                 ),
               ),
               const SizedBox(height: 20),
@@ -113,6 +105,7 @@ class ProductSummary extends StatelessWidget {
                   ),
                 ],
               ),
+              const SizedBox(height: 10),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -132,94 +125,12 @@ class ProductSummary extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-
                       showModalBottomSheet(
                         context: context,
-                        isScrollControlled: true,
-                        builder: (BuildContext context) {
-                          return const PaymentMethodPopup();
-
-                      // Show Payment Method Popup
-                      showModalBottomSheet(
-                        context: context,
-                        shape: const RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.vertical(top: Radius.circular(20)),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0),
                         ),
-                        builder: (BuildContext context) {
-                          return SizedBox(
-                            height: 300,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Padding(
-                                  padding: EdgeInsets.all(16.0),
-                                  child: Text(
-                                    "Select Payment Method",
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                                ListTile(
-                                  leading: const Icon(Icons.credit_card,
-                                      color: Colors.blue),
-                                  title: const Text("Credit Card"),
-                                  trailing: const Text(
-                                    "VISA",
-                                    style: TextStyle(
-                                      color: Colors.blue,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  onTap: () {
-                                    Navigator.pop(context);
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                          content:
-                                              Text("Credit Card Selected")),
-                                    );
-                                  },
-                                ),
-                                ListTile(
-                                  leading: const Icon(Icons.money,
-                                      color: Colors.green),
-                                  title: const Text("Cash"),
-                                  onTap: () {
-                                    Navigator.pop(context);
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                          content: Text("Cash Selected")),
-                                    );
-                                  },
-                                ),
-                                const Spacer(),
-                                Center(
-                                  child: ElevatedButton(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        const SnackBar(
-                                            content:
-                                                Text("Proceeding to Payment")),
-                                      );
-                                    },
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: Colors.green,
-                                      foregroundColor: Colors.white,
-                                      minimumSize: const Size(200, 50),
-                                    ),
-                                    child: const Text("Proceed"),
-                                  ),
-                                ),
-                                const SizedBox(height: 10),
-                              ],
-                            ),
-                          );
-
-                        },
+                        builder: (context) => const PaymentMethodPopup(),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -227,8 +138,10 @@ class ProductSummary extends StatelessWidget {
                       backgroundColor: Colors.green,
                       foregroundColor: Colors.black,
                     ),
-                    child:
-                        const Text("Pay Now", style: TextStyle(fontSize: 18)),
+                    child: const Text(
+                      "Pay Now",
+                      style: TextStyle(fontSize: 18, color: Colors.white),
+                    ),
                   ),
                   const SizedBox(width: 20),
                   OutlinedButton(
@@ -239,43 +152,18 @@ class ProductSummary extends StatelessWidget {
                     },
                     style: OutlinedButton.styleFrom(
                       minimumSize: const Size(150, 50),
-                      backgroundColor: Colors.green,
-                      foregroundColor: Colors.black,
+                      side: const BorderSide(color: Colors.green),
                     ),
-                    child: const Text("Cancel Order",
-                        style: TextStyle(color: Colors.red, fontSize: 18)),
+                    child: const Text(
+                      "Cancel Order",
+                      style: TextStyle(fontSize: 18, color: Colors.black),
+                    ),
                   ),
                 ],
               ),
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: 'Cart',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.gavel),
-            label: 'Auction',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.folder),
-            label: 'Order',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-        selectedItemColor: Colors.green,
-        unselectedItemColor: Colors.grey,
       ),
     );
   }
