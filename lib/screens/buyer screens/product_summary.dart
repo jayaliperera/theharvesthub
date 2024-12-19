@@ -3,6 +3,31 @@ import 'package:flutter/material.dart';
 class ProductSummary extends StatelessWidget {
   const ProductSummary({super.key});
 
+  Widget buildVegetableCard(
+      String imagePath, String title, String price, String quantity) {
+    return Column(
+      children: [
+        Image.asset(
+          imagePath,
+          height: 120,
+        ),
+        const SizedBox(height: 10),
+        Text(
+          title,
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        Text(
+          price,
+          style: const TextStyle(fontSize: 18, color: Colors.grey),
+        ),
+        Text(
+          "Quantity: $quantity",
+          style: const TextStyle(fontSize: 16),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,27 +47,11 @@ class ProductSummary extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
-                child: Column(
-                  children: [
-                    Image.asset(
-                      'assets/images/cabbage.png',
-                      height: 120,
-                    ),
-                    const SizedBox(height: 10),
-                    const Text(
-                      "Cabbage",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                    const Text(
-                      "LKR 600.00",
-                      style: TextStyle(fontSize: 18, color: Colors.grey),
-                    ),
-                    const Text(
-                      "Quantity: 2 Kg",
-                      style: TextStyle(fontSize: 16),
-                    ),
-                  ],
+                child: buildVegetableCard(
+                  'assets/images/cabbage.png',
+                  "Cabbage",
+                  "LKR 600.00",
+                  "2 Kg",
                 ),
               ),
               const SizedBox(height: 20),
@@ -155,32 +164,6 @@ class ProductSummary extends StatelessWidget {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: 'Cart',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.gavel),
-            label: 'Auction',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.folder),
-            label: 'Order',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-        selectedItemColor: Colors.green,
-        unselectedItemColor: Colors.grey,
       ),
     );
   }
