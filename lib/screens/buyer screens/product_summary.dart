@@ -1,32 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:theharvesthub/screens/buyer%20screens/buyer_dashboard.dart';
 
 class ProductSummary extends StatelessWidget {
   const ProductSummary({super.key});
-
-  Widget buildVegetableCard(
-      String imagePath, String title, String price, String quantity) {
-    return Column(
-      children: [
-        Image.asset(
-          imagePath,
-          height: 120,
-        ),
-        const SizedBox(height: 10),
-        Text(
-          title,
-          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
-        Text(
-          price,
-          style: const TextStyle(fontSize: 18, color: Colors.grey),
-        ),
-        Text(
-          "Quantity: $quantity",
-          style: const TextStyle(fontSize: 16),
-        ),
-      ],
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -125,12 +101,11 @@ class ProductSummary extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      showModalBottomSheet(
-                        context: context,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const BuyerDashboard(),
                         ),
-                        builder: (context) => const PaymentMethodPopup(),
                       );
                     },
                     style: ElevatedButton.styleFrom(
