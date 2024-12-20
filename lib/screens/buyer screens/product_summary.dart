@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:theharvesthub/screens/buyer%20screens/buyer_dashboard.dart';
-import 'package:theharvesthub/screens/common%20screens/login_screen.dart';
+
+import 'packge:theharvesthub/screens/buyer%20screens/buyer_dashboard.dart';
 
 class ProductSummary extends StatelessWidget {
   const ProductSummary({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -24,27 +24,11 @@ class ProductSummary extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
-                child: Column(
-                  children: [
-                    Image.asset(
-                      'assets/images/cabbage.png',
-                      height: 120,
-                    ),
-                    const SizedBox(height: 10),
-                    const Text(
-                      "Cabbage",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                    const Text(
-                      "LKR 600.00",
-                      style: TextStyle(fontSize: 18, color: Colors.grey),
-                    ),
-                    const Text(
-                      "Quantity: 2 Kg",
-                      style: TextStyle(fontSize: 16),
-                    ),
-                  ],
+                child: buildVegetableCard(
+                  'assets/images/cabbage.png',
+                  "Cabbage",
+                  "LKR 600.00",
+                  "2 Kg",
                 ),
               ),
               const SizedBox(height: 20),
@@ -99,10 +83,10 @@ class ProductSummary extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text(
+
+ 
+              children: const [
+                 Text(
                     "Total :",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
@@ -117,14 +101,9 @@ class ProductSummary extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const BuyerDashboard(),
-                        ),
-                      );
-                    },
+                    onPressed:BottomSheet(
+                        context: context,
+                        shape: 
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(150, 50),
                       backgroundColor: Colors.green,
@@ -156,32 +135,6 @@ class ProductSummary extends StatelessWidget {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: 'Cart',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.gavel),
-            label: 'Auction',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.folder),
-            label: 'Order',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-        selectedItemColor: Colors.green,
-        unselectedItemColor: Colors.grey,
       ),
     );
   }
