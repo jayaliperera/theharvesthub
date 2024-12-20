@@ -1,32 +1,9 @@
-import 'package:flutter/material.dart';
+
+import 'packge:theharvesthub/screens/buyer%20screens/buyer_dashboard.dart';
 
 class ProductSummary extends StatelessWidget {
   const ProductSummary({super.key});
 
-  Widget buildVegetableCard(
-      String imagePath, String title, String price, String quantity) {
-    return Column(
-      children: [
-        Image.asset(
-          imagePath,
-          height: 120,
-        ),
-        const SizedBox(height: 10),
-        Text(
-          title,
-          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
-        Text(
-          price,
-          style: const TextStyle(fontSize: 18, color: Colors.grey),
-        ),
-        Text(
-          "Quantity: $quantity",
-          style: const TextStyle(fontSize: 16),
-        ),
-      ],
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -92,9 +69,9 @@ class ProductSummary extends StatelessWidget {
                 maxLines: 4,
               ),
               const SizedBox(height: 20),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: const [
                   Text(
                     "Delivery Charge :",
                     style: TextStyle(fontSize: 16),
@@ -106,10 +83,10 @@ class ProductSummary extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 10),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
+
+ 
+              children: const [
+                 Text(
                     "Total :",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
@@ -124,15 +101,9 @@ class ProductSummary extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ElevatedButton(
-                    onPressed: () {
-                      showModalBottomSheet(
+                    onPressed:BottomSheet(
                         context: context,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        builder: (context) => const PaymentMethodPopup(),
-                      );
-                    },
+                        shape: 
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(150, 50),
                       backgroundColor: Colors.green,

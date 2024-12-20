@@ -1,15 +1,18 @@
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'package:theharvesthub/screens/buyer%20screens/vegetable_screen.dart';
+import 'package:theharvesthub/screens/buyer%20screens/fruit_screen.dart';
+import 'package:theharvesthub/screens/buyer%20screens/seed_screen.dart';
 
 class BuyerDashboard extends StatefulWidget {
   const BuyerDashboard({super.key});
 
   @override
-  State<BuyerDashboard> createState() => _BuyerDashboardeState();
+  State<BuyerDashboard> createState() => _BuyerDashboardState();
 }
 
-class _BuyerDashboardeState extends State<BuyerDashboard> {
+class _BuyerDashboardState extends State<BuyerDashboard> {
   int _selectedIndex = 0;
   final iconList = <IconData>[
     Icons.home,
@@ -64,7 +67,7 @@ class _BuyerDashboardeState extends State<BuyerDashboard> {
                 'Welcome Jayali,',
                 style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 10), // Reduced the height
+              const SizedBox(height: 10),
               TextField(
                 decoration: InputDecoration(
                   prefixIcon: const Icon(Icons.search),
@@ -77,7 +80,7 @@ class _BuyerDashboardeState extends State<BuyerDashboard> {
                   contentPadding: const EdgeInsets.symmetric(vertical: 0),
                 ),
               ),
-              const SizedBox(height: 15), // Reduced the height
+              const SizedBox(height: 15),
               CarouselSlider(
                 options: CarouselOptions(
                   height: 150,
@@ -104,37 +107,66 @@ class _BuyerDashboardeState extends State<BuyerDashboard> {
                   );
                 }).toList(),
               ),
-              const SizedBox(height: 15), // Reduced the height
+              const SizedBox(height: 15),
               const Text(
                 'Categories',
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 5), // Reduced the height
+              const SizedBox(height: 5),
               GridView.count(
                 shrinkWrap: true,
                 crossAxisCount: 3,
                 childAspectRatio: 0.8,
-                mainAxisSpacing: 5, // Reduced the spacing
-                crossAxisSpacing: 5, // Reduced the spacing
-                padding:
-                    const EdgeInsets.all(8), // Added padding for compact layout
+                mainAxisSpacing: 5,
+                crossAxisSpacing: 5,
+                padding: const EdgeInsets.all(8),
                 physics: const NeverScrollableScrollPhysics(),
-                children: const [
-                  CategoryCard(
-                    imagePath: 'assets/images/category1.jpg',
-                    title: 'Vegetable',
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Vegetablecreen(),
+                        ),
+                      );
+                    },
+                    child: const CategoryCard(
+                      imagePath: 'assets/images/category1.jpg',
+                      title: 'Vegetable',
+                    ),
                   ),
-                  CategoryCard(
-                    imagePath: 'assets/images/category2.jpg',
-                    title: 'Fruit',
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Fruitscreen(),
+                        ),
+                      );
+                    },
+                    child: const CategoryCard(
+                      imagePath: 'assets/images/category2.jpg',
+                      title: 'Fruit',
+                    ),
                   ),
-                  CategoryCard(
-                    imagePath: 'assets/images/category3.jpg',
-                    title: 'Seed',
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Seedscreen(),
+                        ),
+                      );
+                    },
+                    child: const CategoryCard(
+                      imagePath: 'assets/images/category3.jpg',
+                      title: 'Seed',
+                    ),
                   ),
                 ],
               ),
-              //const SizedBox(height: 15), // Reduced the height
+              const SizedBox(height: 15),
               const Text(
                 'Popular Products',
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),

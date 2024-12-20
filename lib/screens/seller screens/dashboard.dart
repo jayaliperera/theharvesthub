@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:theharvesthub/screens/seller%20screens/product_listing.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
@@ -7,30 +7,21 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.green,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              'assets/images/logo.png', // Path to your logo image
-              height: 40,
-            ),
-            const SizedBox(width: 8),
-            const Text(
-              'Harvest Hub',
-              style: TextStyle(color: Colors.white),
-            ),
-          ],
-        ),
-        centerTitle: true,
-      ),
+      backgroundColor: Colors.white, // Background color set to white
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              // Header with only the logo
+              const SizedBox(height: 16),
+              Center(
+                child: Image.asset(
+                  'assets/images/logo.png', // Path to your logo image
+                  height: 80,
+                ),
+              ),
               const SizedBox(height: 16),
               const Text(
                 'Welcome Rithmi,',
@@ -40,17 +31,39 @@ class Dashboard extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: Image.asset(
-                  'assets/images/farmer.jpg', // Path to your farmer image
-                  height: 150,
-                  width: 150,
-                  fit: BoxFit.cover,
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.green, // Border color
+                    width: 4, // Border width
+                  ),
+                  borderRadius: BorderRadius.circular(12), // Rounded corners
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(
+                      12), // Match the container's borderRadius
+                  child: Image.asset(
+                    'assets/images/farmer.jpg', // Path to your farmer image
+                    height: 150,
+                    width: 150,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               const SizedBox(height: 32),
-              CustomButton(label: 'PRODUCT LISTING', onPressed: () {}),
+              CustomButton(
+                label: 'PRODUCT LISTING',
+                onPressed: () {
+                  // Navigate to PRODUCT LISTING
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const product_listing(),
+                    ),
+                  );
+                },
+              ),
+
               CustomButton(
                 label: 'AUCTION',
                 onPressed: () {
@@ -109,7 +122,7 @@ class CustomButton extends StatelessWidget {
           backgroundColor: Colors.green,
           padding: const EdgeInsets.symmetric(vertical: 16),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(30), // Fully rounded buttons
           ),
         ),
         onPressed: onPressed,
@@ -135,20 +148,20 @@ class AuctionProductUI extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Auction Product'),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
+      backgroundColor: Colors.white, // Background color set to white
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 16),
+            Center(
+              child: Image.asset(
+                'assets/images/logo.png', // Path to your logo image
+                height: 60,
+              ),
+            ),
+            const SizedBox(height: 16),
             const Text(
               "Photos",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -168,7 +181,8 @@ class AuctionProductUI extends StatelessWidget {
                   height: 100,
                   decoration: BoxDecoration(
                     color: Colors.grey[300],
-                    borderRadius: BorderRadius.circular(8.0),
+                    borderRadius:
+                        BorderRadius.circular(12.0), // Rounded corners
                   ),
                   child: const Icon(Icons.add_a_photo, color: Colors.grey),
                 ),
@@ -178,14 +192,22 @@ class AuctionProductUI extends StatelessWidget {
             const TextField(
               decoration: InputDecoration(
                 labelText: "Title",
-                border: OutlineInputBorder(),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(12), // Rounded corners
+                  ),
+                ),
               ),
             ),
             const SizedBox(height: 16),
             const TextField(
               decoration: InputDecoration(
                 labelText: "Pricing",
-                border: OutlineInputBorder(),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(12), // Rounded corners
+                  ),
+                ),
               ),
               keyboardType: TextInputType.number,
             ),
@@ -193,7 +215,11 @@ class AuctionProductUI extends StatelessWidget {
             const TextField(
               decoration: InputDecoration(
                 labelText: "Start bit price",
-                border: OutlineInputBorder(),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(12), // Rounded corners
+                  ),
+                ),
               ),
               keyboardType: TextInputType.number,
             ),
@@ -201,7 +227,11 @@ class AuctionProductUI extends StatelessWidget {
             const TextField(
               decoration: InputDecoration(
                 labelText: "Product quantity",
-                border: OutlineInputBorder(),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(12), // Rounded corners
+                  ),
+                ),
               ),
               keyboardType: TextInputType.number,
             ),
@@ -218,7 +248,8 @@ class AuctionProductUI extends StatelessWidget {
                     horizontal: 40,
                   ),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
+                    borderRadius:
+                        BorderRadius.circular(12.0), // Rounded corners
                   ),
                 ),
                 child: const Text(
@@ -233,4 +264,3 @@ class AuctionProductUI extends StatelessWidget {
     );
   }
 }
-
