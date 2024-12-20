@@ -110,22 +110,22 @@ class _ProductScreenState extends State<Fruitscreen> {
                 childAspectRatio: 3 / 3,
                 children: [
                   buildVegetableCard(
-                    'assets/images/f1.jpg',
+                    'assets/images/Strawberry.jpg',
                     'Strawberry',
                     'Rs.2000/Kg',
                   ),
                   buildVegetableCard(
-                    'assets/images/f2.jpg',
+                    'assets/images/Banana.jpg',
                     'Banana',
                     'Rs.400/Kg',
                   ),
                   buildVegetableCard(
-                    'assets/images/f3.jpg',
+                    'assets/images/Pineapple.png',
                     'Pineapple',
                     'Rs.1000/Kg',
                   ),
                   buildVegetableCard(
-                    'assets/images/f4.jpeg',
+                    'assets/images/Watermelon.png',
                     'Watermelon',
                     'Rs.350/Kg',
                   ),
