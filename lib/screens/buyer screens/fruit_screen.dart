@@ -19,9 +19,9 @@ class _ProductScreenState extends State<Fruitscreen> {
   ];
 
   final List<String> bannerImages = [
-    'assets/images/fb1.avif',
+    'assets/images/fb1.png',
     'assets/images/fb2.png',
-    'assets/images/fb3.avif',
+    'assets/images/fb3.png',
   ];
 
   void _onItemTapped(int index) {
