@@ -1,7 +1,9 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:theharvesthub/screens/buyer%20screens/product_screen.dart';
+import 'package:theharvesthub/screens/buyer%20screens/fruit_screen.dart';
+import 'package:theharvesthub/screens/buyer%20screens/seed_screen.dart';
+import 'package:theharvesthub/screens/buyer%20screens/vegetable_screen.dart';
 
 class BuyerDashboard extends StatefulWidget {
   const BuyerDashboard({super.key});
@@ -120,14 +122,13 @@ class _BuyerDashboardeState extends State<BuyerDashboard> {
                 padding:
                     const EdgeInsets.all(8), // Added padding for compact layout
                 physics: const NeverScrollableScrollPhysics(),
-               children: [
+                children: [
                   GestureDetector(
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>
-                              const ProductScreen(), // navigate to product screen
+                          builder: (context) => const Vegetablecreen(),
                         ),
                       );
                     },
@@ -136,13 +137,35 @@ class _BuyerDashboardeState extends State<BuyerDashboard> {
                       title: 'Vegetable',
                     ),
                   ),
-                  const CategoryCard(
-                    imagePath: 'assets/images/category2.jpg',
-                    title: 'Fruit',
+                  // fruitscreen navigater
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Fruitscreen(),
+                        ),
+                      );
+                    },
+                    child: const CategoryCard(
+                      imagePath: 'assets/images/category2.jpg',
+                      title: 'Fruit',
+                    ),
                   ),
-                  const CategoryCard(
-                    imagePath: 'assets/images/category3.jpg',
-                    title: 'Seed',
+
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Seedscreen(),
+                        ),
+                      );
+                    },
+                    child: const CategoryCard(
+                      imagePath: 'assets/images/category3.jpg',
+                      title: 'Seed',
+                    ),
                   ),
                 ],
               ),
