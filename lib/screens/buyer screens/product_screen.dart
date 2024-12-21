@@ -1,6 +1,7 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:theharvesthub/screens/buyer%20screens/product_summary.dart';
 
 class ProductScreen extends StatefulWidget {
   const ProductScreen({super.key});
@@ -130,6 +131,19 @@ class _ProductScreenState extends State<ProductScreen> {
                     'Rs.300/Kg',
                   ),
                 ],
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  // Navigate to the ProductSummaryScreen
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ProductSummary(),
+                    ),
+                  );
+                },
+                child: const Text('Go to Product Summary'),
               ),
             ],
           ),

@@ -1,9 +1,8 @@
-
-import 'packge:theharvesthub/screens/buyer%20screens/buyer_dashboard.dart';
+import 'package:flutter/material.dart';
+import 'package:theharvesthub/screens/buyer%20screens/buyer_dashboard.dart';
 
 class ProductSummary extends StatelessWidget {
   const ProductSummary({super.key});
-
 
   @override
   Widget build(BuildContext context) {
@@ -69,9 +68,9 @@ class ProductSummary extends StatelessWidget {
                 maxLines: 4,
               ),
               const SizedBox(height: 20),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Text(
                     "Delivery Charge :",
                     style: TextStyle(fontSize: 16),
@@ -83,10 +82,10 @@ class ProductSummary extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 10),
-
- 
-              children: const [
-                 Text(
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
                     "Total :",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
@@ -101,9 +100,14 @@ class ProductSummary extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ElevatedButton(
-                    onPressed:BottomSheet(
-                        context: context,
-                        shape: 
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const BuyerDashboard(),
+                        ),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(150, 50),
                       backgroundColor: Colors.green,
