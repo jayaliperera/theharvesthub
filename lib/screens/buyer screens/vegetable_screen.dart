@@ -101,9 +101,8 @@ class _ProductScreenState extends State<Vegetablecreen> {
               ),
               const SizedBox(height: 20),
               GridView.count(
-                shrinkWrap: true, // Ensures GridView takes only required space
-                physics:
-                    const NeverScrollableScrollPhysics(), // Prevents nested scrolling
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
                 crossAxisCount: 2,
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 20,
@@ -136,9 +135,7 @@ class _ProductScreenState extends State<Vegetablecreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Add your onPressed code here!
-        },
+        onPressed: () {},
         backgroundColor: const Color.fromARGB(255, 221, 255, 187),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
@@ -177,7 +174,7 @@ class _ProductScreenState extends State<Vegetablecreen> {
                 imagePath,
                 fit: BoxFit.fill,
                 width: double.infinity,
-                height: 120, // Adjusted height
+                height: 120,
               ),
             ),
           ),
