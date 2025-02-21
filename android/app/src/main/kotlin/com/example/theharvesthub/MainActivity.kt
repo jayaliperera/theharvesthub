@@ -1,4 +1,4 @@
-package com.example.theharvesthub
+package com.theharvesthub
 
 import io.flutter.embedding.android.FlutterActivity
 
