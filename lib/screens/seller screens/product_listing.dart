@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:theharvesthub/screens/seller%20screens/Added.dart';
 
 // ignore: camel_case_types
 class product_listing extends StatelessWidget {
@@ -54,7 +53,7 @@ class product_listing extends StatelessWidget {
                   labelText: "Title",
                   border: OutlineInputBorder(),
                   filled: true,
-                  fillColor: Colors.grey,
+                  fillColor: Color.fromARGB(255, 243, 243, 243),
                 ),
               ),
               const SizedBox(height: 16.0),
@@ -74,17 +73,17 @@ class product_listing extends StatelessWidget {
               const SizedBox(height: 16),
               const TextField(
                 decoration: InputDecoration(
-                  labelText: "pricing",
+                  labelText: "Pricing",
                   border: OutlineInputBorder(),
                   filled: true,
-                  fillColor: Color.fromARGB(123, 223, 223, 221),
+                  fillColor: Color.fromARGB(255, 243, 243, 243),
                 ),
                 keyboardType: TextInputType.number,
               ),
               const SizedBox(height: 16),
               const TextField(
                 decoration: InputDecoration(
-                  labelText: "Unite of measure",
+                  labelText: "Unit of Measure",
                   border: OutlineInputBorder(),
                   filled: true,
                   fillColor: Color.fromARGB(255, 243, 243, 243),
@@ -97,7 +96,7 @@ class product_listing extends StatelessWidget {
                   labelText: "Product Quantity",
                   border: OutlineInputBorder(),
                   filled: true,
-                  fillColor: Colors.grey,
+                  fillColor: Color.fromARGB(255, 243, 243, 243),
                 ),
               ),
               const SizedBox(height: 16),
@@ -106,17 +105,29 @@ class product_listing extends StatelessWidget {
                   labelText: "Product Description",
                   border: OutlineInputBorder(),
                   filled: true,
-                  fillColor: Colors.grey,
+                  fillColor: Color.fromARGB(255, 243, 243, 243),
                 ),
               ),
               const SizedBox(height: 32),
               Center(
                 child: ElevatedButton(
                   onPressed: () {
-                    // Navigate to the HomeScreen
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Added()),
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: const Text("Success"),
+                          content: const Text("Product added successfully!"),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: const Text("OK"),
+                            ),
+                          ],
+                        );
+                      },
                     );
                   },
                   style: ElevatedButton.styleFrom(

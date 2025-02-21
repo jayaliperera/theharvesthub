@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:theharvesthub/screens/buyer%20screens/buyer_dashboard.dart';
 import 'package:theharvesthub/screens/common%20screens/forgot_password_screen.dart';
 import 'package:theharvesthub/screens/common%20screens/signup_screen.dart';
+import 'package:theharvesthub/screens/seller%20screens/product_listing.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -158,7 +159,7 @@ class LoginScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const SignUp_Screen(),
+                            builder: (context) => const product_listing(),
                           ),
                         );
                       },
