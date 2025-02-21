@@ -4,6 +4,54 @@ import 'package:theharvesthub/screens/buyer%20screens/buyer_dashboard.dart';
 class ProductSummary extends StatelessWidget {
   const ProductSummary({super.key});
 
+  Widget buildVegetableCard(
+    String imagePath,
+    String productName,
+    String price,
+    String weight,
+  ) {
+    return Card(
+      elevation: 5,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset(
+              imagePath,
+              height: 100,
+              fit: BoxFit.cover,
+            ),
+            const SizedBox(height: 10),
+            Text(
+              productName,
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 5),
+            Text(
+              price,
+              style: const TextStyle(
+                fontSize: 16,
+                color: Colors.green,
+              ),
+            ),
+            const SizedBox(height: 5),
+            Text(
+              weight,
+              style: const TextStyle(fontSize: 14, color: Colors.grey),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -178,83 +226,6 @@ class ProductSummary extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class PaymentMethodPopup extends StatelessWidget {
-  const PaymentMethodPopup({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        left: 16.0,
-        right: 16.0,
-        top: 16.0,
-        bottom: MediaQuery.of(context).viewInsets.bottom + 16.0,
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          const Text(
-            "Select Payment Method",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              // Handle Credit Card selection
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.grey[200],
-              foregroundColor: Colors.black,
-              padding: const EdgeInsets.all(16),
-            ),
-            child: const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text("Credit Card"),
-                Text("VISA", style: TextStyle(color: Colors.blue)),
-              ],
-            ),
-          ),
-          const SizedBox(height: 10),
-          ElevatedButton(
-            onPressed: () {
-              // Handle Cash selection
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.grey[200],
-              foregroundColor: Colors.black,
-              padding: const EdgeInsets.all(16),
-            ),
-            child: const Align(
-              alignment: Alignment.centerLeft,
-              child: Text("Cash"),
-            ),
-          ),
-          const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              // Proceed functionality
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text("Proceeding with payment...")),
-              );
-              Navigator.pop(context);
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.green,
-              minimumSize: const Size(double.infinity, 50),
-            ),
-            child: const Text(
-              "Proceed",
-              style: TextStyle(fontSize: 18, color: Colors.white),
-            ),
-          ),
-        ],
       ),
     );
   }

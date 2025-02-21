@@ -1,6 +1,8 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:theharvesthub/screens/buyer%20screens/buyer_dashboard.dart';
+import 'package:theharvesthub/screens/buyer%20screens/product_summary.dart';
 
 class Vegetablecreen extends StatefulWidget {
   const Vegetablecreen({super.key});
@@ -123,10 +125,20 @@ class _ProductScreenState extends State<Vegetablecreen> {
                     'Beets',
                     'Rs.100/Kg',
                   ),
-                  buildVegetableCard(
-                    'assets/images/cabbage.png',
-                    'Cabbage',
-                    'Rs.300/Kg',
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ProductSummary(),
+                        ),
+                      );
+                    },
+                    child: buildVegetableCard(
+                      'assets/images/cabbage.png',
+                      'cabbage',
+                      'Rs.150/Kg',
+                    ),
                   ),
                 ],
               ),

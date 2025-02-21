@@ -19,9 +19,9 @@ class _ProductScreenState extends State<Seedscreen> {
   ];
 
   final List<String> bannerImages = [
-    'assets/images/SB1.jpeg',
-    'assets/images/SB2.jpeg',
-    'assets/images/SB3.jpeg',
+    'assets/images/sb1.jpg',
+    'assets/images/sb2.png',
+    'assets/images/sb3.png',
   ];
 
   void _onItemTapped(int index) {
@@ -109,16 +109,23 @@ class _ProductScreenState extends State<Seedscreen> {
                 childAspectRatio: 3 / 3,
                 children: [
                   buildVegetableCard(
-                    'assets/images/Bean.jpeg',
+                    'assets/images/b.png',
                     'Bean seeds',
                     'Rs.1000/Kg',
                   ),
                   buildVegetableCard(
-                    'assets/images/Carrot.jpeg',
+                    'assets/images/c.jpeg',
                     'Carrot seeds',
                     'Rs.1500/Kg',
                   ),
                   buildVegetableCard(
+                    'assets/images/d.jpg',
+                    'Dal seeds',
+                    'Rs.900/Kg',
+                  ),
+                  buildVegetableCard(
+                    'assets/images/r.jpg',
+                    'Rice seeds',
                     'assets/images/Brinjal.jpeg',
                     'Brinjal seeds',
                     'Rs.900/Kg',

@@ -5,6 +5,7 @@ import 'package:theharvesthub/screens/buyer%20screens/vegetable_screen.dart';
 import 'package:theharvesthub/screens/buyer%20screens/fruit_screen.dart';
 import 'package:theharvesthub/screens/buyer%20screens/seed_screen.dart';
 
+
 class BuyerDashboard extends StatefulWidget {
   const BuyerDashboard({super.key});
 
@@ -136,6 +137,7 @@ class _BuyerDashboardeState extends State<BuyerDashboard> {
                       title: 'Vegetable',
                     ),
                   ),
+
                   GestureDetector(
                     onTap: () {
                       Navigator.push(
@@ -150,6 +152,7 @@ class _BuyerDashboardeState extends State<BuyerDashboard> {
                       title: 'Fruit',
                     ),
                   ),
+
                   GestureDetector(
                     onTap: () {
                       Navigator.push(
