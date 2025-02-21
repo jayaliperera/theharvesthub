@@ -101,9 +101,8 @@ class _ProductScreenState extends State<Seedscreen> {
               ),
               const SizedBox(height: 20),
               GridView.count(
-                shrinkWrap: true, // Ensures GridView takes only required space
-                physics:
-                    const NeverScrollableScrollPhysics(), // Prevents nested scrolling
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
                 crossAxisCount: 2,
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 20,
@@ -127,6 +126,13 @@ class _ProductScreenState extends State<Seedscreen> {
                   buildVegetableCard(
                     'assets/images/r.jpg',
                     'Rice seeds',
+                    'assets/images/Brinjal.jpeg',
+                    'Brinjal seeds',
+                    'Rs.900/Kg',
+                  ),
+                  buildVegetableCard(
+                    'assets/images/Chilis.jpeg',
+                    'Chilis seeds',
                     'Rs.200/Kg',
                   ),
                 ],
@@ -136,9 +142,7 @@ class _ProductScreenState extends State<Seedscreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Add your onPressed code here!
-        },
+        onPressed: () {},
         backgroundColor: const Color.fromARGB(255, 221, 255, 187),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
@@ -177,7 +181,7 @@ class _ProductScreenState extends State<Seedscreen> {
                 imagePath,
                 fit: BoxFit.fill,
                 width: double.infinity,
-                height: 120, // Adjusted height
+                height: 120,
               ),
             ),
           ),

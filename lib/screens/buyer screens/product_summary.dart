@@ -71,11 +71,50 @@ class ProductSummary extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
-                child: buildVegetableCard(
-                  'assets/images/cabbage.png',
-                  "Cabbage",
-                  "LKR 600.00",
-                  "2 Kg",
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Card(
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image.asset(
+                          'assets/images/cabbage.png',
+                          fit: BoxFit.fill,
+                          width: double.infinity,
+                          height: 120,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 5),
+                    const Text(
+                      "Cabbage",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                    const SizedBox(height: 3),
+                    const Text(
+                      "LKR 600.00",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                        fontSize: 12,
+                      ),
+                    ),
+                    const SizedBox(height: 3),
+                    const Text(
+                      "2 Kg",
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(height: 20),
