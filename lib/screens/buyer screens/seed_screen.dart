@@ -127,8 +127,8 @@ class _ProductScreenState extends State<Seedscreen> {
                     'assets/images/r.jpg',
                     'Rice seeds',
                     'assets/images/Brinjal.jpeg',
-                    'Brinjal seeds',
-                    'Rs.900/Kg',
+                    //'Brinjal seeds',
+                    //'Rs.900/Kg',
                   ),
                   buildVegetableCard(
                     'assets/images/Chilis.jpeg',
