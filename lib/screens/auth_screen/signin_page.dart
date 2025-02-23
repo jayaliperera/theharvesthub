@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:theharvesthub/components/custom_buttons/custom_button.dart';
 import 'package:theharvesthub/components/custom_text_fields/custom_text_fields.dart';
 import 'package:theharvesthub/components/custom_texts/custom_text.dart';
+import 'package:theharvesthub/screens/auth_screen/forgot_password_page.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
