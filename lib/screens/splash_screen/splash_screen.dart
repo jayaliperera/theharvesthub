@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset("assets/images/adidas.png"),
+            Image.asset("assets/images/logo.png"),
             const CupertinoActivityIndicator(
               color: Colors.white,
             )
