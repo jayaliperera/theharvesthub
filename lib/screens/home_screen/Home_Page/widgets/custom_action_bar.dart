@@ -10,7 +10,7 @@ class CustomActionBar extends StatelessWidget {
     return const Row(
       children: [
         CircleAvatar(
-          backgroundColor: Colors.orange,
+          backgroundColor: Colors.green,
           child: Icon(
             Icons.menu,
             color: Colors.white,
@@ -18,7 +18,7 @@ class CustomActionBar extends StatelessWidget {
         ),
         Spacer(),
         CircleAvatar(
-          backgroundColor: Colors.orange,
+          backgroundColor: Colors.green,
           child: Icon(
             Icons.search,
             color: Colors.white,

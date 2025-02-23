@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:theharvesthub/components/custom_texts/custom_text.dart';
 import 'package:theharvesthub/models/product_model.dart';
+import 'package:theharvesthub/screens/home_screen/cart/cart_screen.dart';
 import 'package:theharvesthub/utills/custom_navigators.dart';
 import 'package:theharvesthub/utills/demo_data.dart';
 
