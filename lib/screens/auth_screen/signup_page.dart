@@ -27,7 +27,7 @@ class _SignUpPageState extends State<SignUpPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const CustomText(
-              text: "Adidas",
+              text: "The Harvest Hub",
               fontSize: 30,
               fontWeight: FontWeight.w500,
             ),
@@ -75,7 +75,7 @@ class _SignUpPageState extends State<SignUpPage> {
               onTap: () {},
               child: CustomButton(
                   text: "Create Account",
-                  bgColor: Colors.orange.shade700,
+                  bgColor: Colors.green.shade700,
                   size: size),
             ),
             const SizedBox(
@@ -91,7 +91,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   text: "Already have an account? ",
                   children: [
                     TextSpan(
-                        text: "Sign In", style: TextStyle(color: Colors.orange))
+                        text: "Sign In", style: TextStyle(color: Colors.green))
                   ])),
             ))
           ],

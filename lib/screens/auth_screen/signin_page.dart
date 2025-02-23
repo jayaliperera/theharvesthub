@@ -30,7 +30,7 @@ class _SignInPageState extends State<SignInPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const CustomText(
-              text: "Adidas",
+              text: "The Harvest Hub",
               fontSize: 30,
               fontWeight: FontWeight.w500,
             ),
@@ -81,7 +81,7 @@ class _SignInPageState extends State<SignInPage> {
                     text: "Forgot Password?",
                     fontSize: 15,
                     fontWeight: FontWeight.w400,
-                    color: Colors.orangeAccent,
+                    color: Colors.greenAccent,
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -95,7 +95,7 @@ class _SignInPageState extends State<SignInPage> {
                 CustomNavigators.goTo(context, const HomePage());
               },
               child: CustomButton(
-                  text: "Sign in", bgColor: Colors.orange.shade700, size: size),
+                  text: "Sign in", bgColor: Colors.green.shade700, size: size),
             ),
             const SizedBox(
               height: 10,
@@ -112,7 +112,7 @@ class _SignInPageState extends State<SignInPage> {
                   text: "Don't you have an account? ",
                   children: [
                     TextSpan(
-                        text: "Sign Up", style: TextStyle(color: Colors.orange))
+                        text: "Sign Up", style: TextStyle(color: Colors.green))
                   ])),
             ))
           ],
