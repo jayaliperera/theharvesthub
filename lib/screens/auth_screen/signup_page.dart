@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:theharvesthub/components/custom_buttons/custom_button.dart';
 import 'package:theharvesthub/components/custom_text_fields/custom_text_fields.dart';
 import 'package:theharvesthub/components/custom_texts/custom_text.dart';
+import 'package:theharvesthub/controllers/auth_controller.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -77,6 +78,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   text: "Create Account",
                   bgColor: Colors.green.shade700,
                   size: size),
+    
             ),
             const SizedBox(
               height: 10,
@@ -85,6 +87,8 @@ class _SignUpPageState extends State<SignUpPage> {
             Center(
                 child: InkWell(
               onTap: () {
+                
+                AuthController().createAccount(email: emailController.text, password: passwordController.text)  
                 Navigator.pop(context);
               },
               child: const Text.rich(TextSpan(

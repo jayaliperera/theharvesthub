@@ -108,12 +108,10 @@ class _SignInPageState extends State<SignInPage> {
               onTap: () {
                 CustomNavigators.goTo(context, const SignUpPage());
               },
-              child: const Text.rich(TextSpan(
-                  text: "Don't you have an account? ",
-                  children: [
-                    TextSpan(
-                        text: "Sign Up", style: TextStyle(color: Colors.green))
-                  ])),
+              child: const Text.rich(
+                  TextSpan(text: "Don't you have an account? ", children: [
+                TextSpan(text: "Sign Up", style: TextStyle(color: Colors.green))
+              ])),
             ))
           ],
         ),
