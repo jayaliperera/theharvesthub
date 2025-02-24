@@ -42,7 +42,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   },
                   child: isObscure
                       ? const Icon(Icons.visibility_off)
-                      : Icon(Icons.visibility))
+                      : const Icon(Icons.visibility))
               : null),
     );
   }
