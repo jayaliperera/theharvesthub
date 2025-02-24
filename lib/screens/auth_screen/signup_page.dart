@@ -19,84 +19,97 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
     return Scaffold(
-        body: SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const CustomText(
-              text: "The Harvest Hub",
-              fontSize: 30,
-              fontWeight: FontWeight.w500,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/images/logo.png',
+                        height: 100,
+                      ),
+                      const SizedBox(height: 30),
+                      const CustomText(
+                        text: "The Harvest Hub",
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 30),
+                const CustomText(
+                  text: "Create a new account with your email & password.",
+                  fontSize: 15,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.black54,
+                ),
+                const SizedBox(height: 30),
+                CustomTextField(
+                  labelText: "Email",
+                  hintText: "Enter your Email",
+                  prefixIcon: const Icon(Icons.email),
+                  controller: emailController,
+                ),
+                const SizedBox(height: 20),
+                CustomTextField(
+                  labelText: "Password",
+                  hintText: "Enter your password",
+                  prefixIcon: const Icon(Icons.lock),
+                  isPassword: true,
+                  controller: passwordController,
+                ),
+                const SizedBox(height: 20),
+                CustomTextField(
+                  labelText: "Confirm Password",
+                  hintText: "Confirm your password",
+                  prefixIcon: const Icon(Icons.lock),
+                  isPassword: true,
+                  controller: confirmPasswordController,
+                ),
+                const SizedBox(height: 30),
+                GestureDetector(
+                  onTap: () {},
+                  child: CustomButton(
+                    text: "Create Account",
+                    bgColor: Colors.green.shade700,
+                    size: size,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Center(
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text.rich(
+                      TextSpan(
+                        text: "Already have an account? ",
+                        children: [
+                          TextSpan(
+                            text: "Sign In",
+                            style: TextStyle(color: Colors.green),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 30),
+              ],
             ),
-            const CustomText(
-              text: "Create new account with your email & password.",
-              fontSize: 15,
-              fontWeight: FontWeight.w400,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            CustomTextField(
-              labelText: "Email",
-              hintText: "Enter your Email",
-              prefixIcon: const Icon(Icons.email),
-              controller: emailController,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            CustomTextField(
-              labelText: "Password",
-              hintText: "Enter your password",
-              prefixIcon: const Icon(Icons.password),
-              isPassword: true,
-              controller: passwordController,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            CustomTextField(
-              labelText: "Confirm Password",
-              hintText: "Enter your password",
-              prefixIcon: const Icon(Icons.password),
-              isPassword: true,
-              controller: confirmPasswordController,
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            GestureDetector(
-              onTap: () {},
-              child: CustomButton(
-                  text: "Create Account",
-                  bgColor: Colors.green.shade700,
-                  size: size),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-       
-            Center(
-                child: InkWell(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: const Text.rich(TextSpan(
-                  text: "Already have an account? ",
-                  children: [
-                    TextSpan(
-                        text: "Sign In", style: TextStyle(color: Colors.green))
-                  ])),
-            ))
-          ],
+          ),
         ),
       ),
-    ));
+    );
   }
 }
