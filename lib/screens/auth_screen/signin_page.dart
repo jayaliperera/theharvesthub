@@ -1,5 +1,3 @@
-import 'dart:collection';
-
 import 'package:flutter/material.dart';
 import 'package:theharvesthub/components/custom_buttons/custom_button.dart';
 import 'package:theharvesthub/components/custom_text_fields/custom_text_fields.dart';
@@ -24,75 +22,91 @@ class _SignInPageState extends State<SignInPage> {
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
-        child: Center(
-          child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20.0),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+              horizontal: 24.0, vertical: 32.0), // Increase padding
+          child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // Logo
-                Image.asset(
-                  'assets/images/logo.png',
-                  height: 100,
+                // Centered Logo with reduced size
+                Center(
+                  child: Image.asset(
+                    'assets/images/logo.png',
+                    height: 100,
+                    width: 100,
+                  ),
                 ),
                 const SizedBox(height: 20),
 
-                // Title
-                const CustomText(
-                  text: "The Harvest Hub",
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                // Title with enhanced font styling and shadow
+                const Center(
+                  child: CustomText(
+                    text: "The Harvest Hub",
+                    fontSize: 36,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.greenAccent,
+                  ),
                 ),
                 const SizedBox(height: 10),
                 const CustomText(
-                  text: "Please fill in your details to access your account.",
+                  text: "Please fill your details to access the account.",
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
                   color: Colors.grey,
                 ),
                 const SizedBox(height: 30),
 
-                // Email Field
+                // Email Field with rounded corners and shadow
                 CustomTextField(
                   labelText: "Email",
                   hintText: "Enter your Email",
                   prefixIcon: const Icon(Icons.email),
                   controller: emailController,
+                  borderRadius: BorderRadius.circular(12), // Rounded corners
+                  boxShadow: const [
+                    BoxShadow(
+                        blurRadius: 4,
+                        color: Colors.black12,
+                        offset: Offset(0, 2))
+                  ], // Shadow
                 ),
                 const SizedBox(height: 15),
 
-                // Password Field
+                // Password Field with rounded corners and shadow
                 CustomTextField(
                   labelText: "Password",
                   hintText: "Enter your password",
-                  prefixIcon: const Icon(Icons.lock),
+                  prefixIcon: const Icon(Icons.password),
                   isPassword: true,
                   controller: passwordController,
+                  borderRadius: BorderRadius.circular(12), // Rounded corners
+                  boxShadow: const [
+                    BoxShadow(
+                        blurRadius: 4,
+                        color: Colors.black12,
+                        offset: Offset(0, 2))
+                  ], // Shadow
                 ),
                 const SizedBox(height: 10),
 
-                // Remember Me & Forgot Password
+                // Remember Me & Forgot Password with spacing
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
-                      children: [
-                        Checkbox(
-                          value: false,
-                          onChanged: (val) {},
-                          shape: const CircleBorder(),
-                        ),
-                        const CustomText(
-                          text: "Remember me",
-                          fontSize: 15,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ],
+                    Checkbox(
+                      value: false,
+                      onChanged: (val) {},
+                      shape: const OvalBorder(),
                     ),
+                    const CustomText(
+                      text: "Remember me",
+                      fontSize: 15,
+                      fontWeight: FontWeight.w400,
+                    ),
+                    const Spacer(),
                     GestureDetector(
                       onTap: () {
                         CustomNavigators.goTo(
@@ -102,14 +116,14 @@ class _SignInPageState extends State<SignInPage> {
                         text: "Forgot Password?",
                         fontSize: 15,
                         fontWeight: FontWeight.w400,
-                        color: Colors.green,
+                        color: Colors.greenAccent,
                       ),
                     ),
                   ],
                 ),
                 const SizedBox(height: 20),
 
-                // Sign In Button
+                // Sign In Button with enhanced styling
                 GestureDetector(
                   onTap: () {
                     CustomNavigators.goTo(context, const HomePage());
@@ -118,31 +132,37 @@ class _SignInPageState extends State<SignInPage> {
                     text: "Sign in",
                     bgColor: Colors.green.shade700,
                     size: size,
+                    borderRadius: BorderRadius.circular(12), // Rounded corners
+                    boxShadow: const [
+                      BoxShadow(
+                          blurRadius: 4,
+                          color: Colors.black26,
+                          offset: Offset(0, 4))
+                    ], // Shadow
                   ),
                 ),
                 const SizedBox(height: 20),
 
-                // Sign Up Link
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const CustomText(
-                      text: "Don't have an account? ",
-                      fontSize: 15,
-                      fontWeight: FontWeight.w400,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        CustomNavigators.goTo(context, const SignUpPage());
-                      },
-                      child: const CustomText(
-                        text: "Sign Up",
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.green,
+                // Sign Up Link with hover effect styling
+                Center(
+                  child: InkWell(
+                    onTap: () {
+                      CustomNavigators.goTo(context, const SignUpPage());
+                    },
+                    child: const Text.rich(
+                      TextSpan(
+                        text: "Don't have an account? ",
+                        children: [
+                          TextSpan(
+                            text: "Sign Up",
+                            style: TextStyle(
+                                color: Colors.greenAccent,
+                                fontWeight: FontWeight.bold),
+                          )
+                        ],
                       ),
                     ),
-                  ],
+                  ),
                 ),
               ],
             ),
