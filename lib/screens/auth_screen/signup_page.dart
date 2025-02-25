@@ -78,25 +78,29 @@ class _SignUpPageState extends State<SignUpPage> {
                   text: "Create Account",
                   bgColor: Colors.green.shade700,
                   size: size),
-    
             ),
             const SizedBox(
               height: 10,
             ),
-       
             Center(
                 child: InkWell(
               onTap: () {
-                
-                AuthController().createAccount(email: emailController.text, password: passwordController.text)  
+                if (emailController.text.trim().isEmpty ||
+                    passwordController.text.trim().isEmpty ||
+                    passwordController.text.trim !=
+                        confirmPasswordController.text) {
+                  print("Invalid data");
+                } else {
+                  AuthController().createAccount(
+                      email: emailController.text,
+                      password: passwordController.text);
+                }
                 Navigator.pop(context);
               },
-              child: const Text.rich(TextSpan(
-                  text: "Already have an account? ",
-                  children: [
-                    TextSpan(
-                        text: "Sign In", style: TextStyle(color: Colors.green))
-                  ])),
+              child: const Text.rich(
+                  TextSpan(text: "Already have an account? ", children: [
+                TextSpan(text: "Sign In", style: TextStyle(color: Colors.green))
+              ])),
             ))
           ],
         ),
