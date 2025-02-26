@@ -19,10 +19,11 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(const Duration(seconds: 3), () {
       FirebaseAuth.instance.authStateChanges().listen((User? user) {
         if (user == null) {
-          print('User is currently signed out!');
+          print('APPLOG ::User is currently signed out!');
           CustomNavigators.goTo(context, const SignInPage());
         } else {
-          print('User is signed in!');
+          print('APPLOG ::User is signed in!');
+          print("APPLOG :: $user");
           CustomNavigators.goTo(context, const HomePage());
         }
       });

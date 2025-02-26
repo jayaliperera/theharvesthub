@@ -10,12 +10,16 @@ class AuthController {
       );
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        print('The password provided is too weak.');
+        print('APPLOG :: The password provided is too weak.');
       } else if (e.code == 'email-already-in-use') {
-        print('The account already exists for that email.');
+        print('APPLOG :: The account already exists for that email.');
       }
     } catch (e) {
       print(e);
     }
+  }
+
+  Future<void> signOutUser() async {
+    await FirebaseAuth.instance.signOut();
   }
 }

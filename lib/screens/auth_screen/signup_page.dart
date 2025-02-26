@@ -73,7 +73,18 @@ class _SignUpPageState extends State<SignUpPage> {
               height: 10,
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                if (emailController.text.trim().isEmpty ||
+                    passwordController.text.trim().isEmpty ||
+                    passwordController.text.trim() !=
+                        confirmPasswordController.text.trim()) {
+                  print("APPPLOG :: Invalid data");
+                } else {
+                  AuthController().createAccount(
+                      email: emailController.text,
+                      password: passwordController.text);
+                }
+              },
               child: CustomButton(
                   text: "Create Account",
                   bgColor: Colors.green.shade700,
@@ -85,16 +96,6 @@ class _SignUpPageState extends State<SignUpPage> {
             Center(
                 child: InkWell(
               onTap: () {
-                if (emailController.text.trim().isEmpty ||
-                    passwordController.text.trim().isEmpty ||
-                    passwordController.text.trim !=
-                        confirmPasswordController.text) {
-                  print("Invalid data");
-                } else {
-                  AuthController().createAccount(
-                      email: emailController.text,
-                      password: passwordController.text);
-                }
                 Navigator.pop(context);
               },
               child: const Text.rich(
