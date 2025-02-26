@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:theharvesthub/components/custom_buttons/custom_button.dart';
 import 'package:theharvesthub/components/custom_text_fields/custom_text_fields.dart';
 import 'package:theharvesthub/components/custom_texts/custom_text.dart';
-import 'package:theharvesthub/controllers/auth_controller.dart';
 import 'package:theharvesthub/providers/signup_provider.dart';
 
 class SignUpPage extends StatefulWidget {
