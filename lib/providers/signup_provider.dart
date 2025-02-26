@@ -21,8 +21,21 @@ class SignupProvider extends ChangeNotifier {
             _confirmPasswordController.text.trim()) {
       print("APPPLOG :: Invalid data");
     } else {
-      authController.createAccount(
-          email: emailController.text, password: passwordController.text);
+      authController
+          .createAccount(
+              email: emailController.text, password: passwordController.text)
+          .then(
+        (value) {
+          clearTextField();
+        },
+      );
     }
+  }
+
+  void clearTextField() {
+    _emailController.clear();
+    _passwordController.clear();
+    _confirmPasswordController.clear();
+    notifyListeners();
   }
 }
