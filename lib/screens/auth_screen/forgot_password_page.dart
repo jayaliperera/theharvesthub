@@ -53,7 +53,7 @@ class _SignUpPageState extends State<ForgotPasswordPage> {
               CustomButton(
                   size: size,
                   text: "Send Reset Email",
-                  bgColor: Colors.orange.shade700)
+                  bgColor: Colors.green.shade700)
             ],
           ),
         ),
