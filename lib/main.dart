@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:theharvesthub/firebase_options.dart';
+import 'package:theharvesthub/providers/signin_provider.dart';
 import 'package:theharvesthub/providers/signup_provider.dart';
 import 'package:theharvesthub/screens/splash_screen/splash_screen.dart';
 
@@ -12,6 +13,7 @@ Future<void> main() async {
   );
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (context) => SignupProvider()),
+    ChangeNotifierProvider(create: (context) => SigninProvider()),
   ], child: const MyApp()));
 }
 
