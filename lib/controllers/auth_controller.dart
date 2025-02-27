@@ -1,6 +1,30 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:theharvesthub/screens/auth_screen/signin_page.dart';
+import 'package:theharvesthub/screens/home_screen/Home_Page/home_page.dart';
+import 'package:theharvesthub/utills/custom_navigators.dart';
+import 'package:theharvesthub/providers/auth_provider.dart' as local;
+
+
 
 class AuthController {
+  Future<void> listenAuthState(BuildContext context) async {
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      if (user == null) {
+        print('APPLOG ::User is currently signed out!');
+
+        CustomNavigators.goTo(context, const SignInPage());
+      } else {
+        Provider.of<local.AuthProvider>(context, listen: false).setUser(user);
+        print('APPLOG ::User is signed in!');
+        print("APPLOG :: $user");
+
+        CustomNavigators.goTo(context, const HomePage());
+      }
+    });
+  }
+
   Future<bool> createAccount(
       {required String email, required String password}) async {
     try {
@@ -46,3 +70,4 @@ class AuthController {
     await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
   }
 }
+

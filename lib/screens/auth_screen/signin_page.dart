@@ -6,7 +6,6 @@ import 'package:theharvesthub/components/custom_texts/custom_text.dart';
 import 'package:theharvesthub/providers/signin_provider.dart';
 import 'package:theharvesthub/screens/auth_screen/forgot_password_page.dart';
 import 'package:theharvesthub/screens/auth_screen/signup_page.dart';
-import 'package:theharvesthub/screens/home_screen/Home_Page/home_page.dart';
 import 'package:theharvesthub/utills/custom_navigators.dart';
 
 class SignInPage extends StatefulWidget {

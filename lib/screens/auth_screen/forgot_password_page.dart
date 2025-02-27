@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:theharvesthub/components/custom_buttons/custom_button.dart';
 import 'package:theharvesthub/components/custom_text_fields/custom_text_fields.dart';
 import 'package:theharvesthub/components/custom_texts/custom_text.dart';
+import 'package:theharvesthub/providers/signin_provider.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({super.key});
@@ -20,7 +22,8 @@ class _SignUpPageState extends State<ForgotPasswordPage> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Center(
-          child: Column(
+          child: Consumer<SigninProvider>(builder: (context, value, child) {
+            return Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Row(
@@ -46,16 +49,22 @@ class _SignUpPageState extends State<ForgotPasswordPage> {
                   labelText: "Email",
                   hintText: "Enter your email",
                   prefixIcon: const Icon(Icons.email),
-                  controller: emailController),
+                  controller: value.resetEmailController),
               const SizedBox(
                 height: 10,
               ),
-              CustomButton(
+              GestureDetector(
+                onTap: () {
+                  value.sendResetEmail();
+                },
+                child: CustomButton(
                   size: size,
                   text: "Send Reset Email",
                   bgColor: Colors.green.shade700)
+              )
             ],
-          ),
+          );
+        }),
         ),
       ),
     );
