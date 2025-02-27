@@ -8,17 +8,20 @@ class SignupProvider extends ChangeNotifier {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
       TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
 
   TextEditingController get emailController => _emailController;
   TextEditingController get passwordController => _passwordController;
   TextEditingController get confirmPasswordController =>
       _confirmPasswordController;
+  TextEditingController get nameController => _nameController;
 
   Future<void> startSignUp() async {
     if (_emailController.text.trim().isEmpty ||
         _passwordController.text.trim().isEmpty ||
         _passwordController.text.trim() !=
-            _confirmPasswordController.text.trim()) {
+            _confirmPasswordController.text.trim() ||
+        _nameController.text.trim().isEmpty) {
       print("APPPLOG :: Invalid data");
     } else {
       authController
@@ -38,6 +41,7 @@ class SignupProvider extends ChangeNotifier {
     _emailController.clear();
     _passwordController.clear();
     _confirmPasswordController.clear();
+    _nameController.clear();
     notifyListeners();
   }
 }
