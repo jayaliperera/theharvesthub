@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:theharvesthub/components/custom_buttons/custom_button.dart';
 import 'package:theharvesthub/components/custom_text_fields/custom_text_fields.dart';
 import 'package:theharvesthub/components/custom_texts/custom_text.dart';
-import 'package:theharvesthub/controllers/auth_controller.dart';
 import 'package:theharvesthub/providers/signup_provider.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -35,6 +34,15 @@ class _SignUpPageState extends State<SignUpPage> {
                 text: "Create new account with your email & password.",
                 fontSize: 15,
                 fontWeight: FontWeight.w400,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              CustomTextField(
+                labelText: "User Name",
+                hintText: "Enter your User Name",
+                prefixIcon: const Icon(Icons.person),
+                controller: value.emailController,
               ),
               const SizedBox(
                 height: 10,
