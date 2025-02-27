@@ -42,7 +42,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 labelText: "User Name",
                 hintText: "Enter your User Name",
                 prefixIcon: const Icon(Icons.person),
-                controller: value.emailController,
+                controller: value.nameController,
               ),
               const SizedBox(
                 height: 10,
