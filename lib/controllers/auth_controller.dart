@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -9,6 +10,8 @@ import 'package:theharvesthub/providers/auth_provider.dart' as local;
 
 
 class AuthController {
+CollectionReference users = FirebaseFirestore.instance.collection('Users');
+
   Future<void> listenAuthState(BuildContext context) async {
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       if (user == null) {
