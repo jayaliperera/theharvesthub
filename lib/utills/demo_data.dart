@@ -6,61 +6,78 @@ class DemoData {
       id: 1,
       title: "Carrots",
       description:
-          "A crunchy and nutritious root vegetable commonly grown in Sri Lanka's highlands, rich in vitamins and perfect for salads, stir-fries, and curries.",
-      image:
-          "https://jaipurskincity.com/wp-content/uploads/2018/06/vegetable-for-hair-growth.jpg",
+          "A vibrant and crunchy root vegetable, rich in beta-carotene and essential vitamins. Grown in the highlands of Sri Lanka, carrots are perfect for adding color and nutrition to salads, soups, and curries.",
+      image: 'https://www.economist.com/cdn-cgi/image/width=1424,quality=80,format=auto/sites/default/files/20180929_BLP506.jpg',
       price: 600,
     ),
     ProductModel(
       id: 2,
       title: "Cauliflower",
       description:
-          "A versatile vegetable cultivated in Sri Lanka’s cooler regions, often used in curries, stir-fries, and deep-fried dishes.",
+          "A versatile cruciferous vegetable cultivated in Sri Lanka’s cooler regions. Known for its mild flavor and tender texture, cauliflower is a staple in curries, stir-fries, and even deep-fried snacks.",
       image:
-          "https://t3.ftcdn.net/jpg/00/68/10/58/360_F_68105885_hf9yIAhaAoa69xgSnwviKsomIh9blBJJ.jpg",
+          "https://snaped.fns.usda.gov/sites/default/files/styles/crop_ratio_7_5/public/seasonal-produce/2018-05/cauliflower.jpg.webp?itok=bkbqZWhp",
       price: 500,
     ),
     ProductModel(
       id: 3,
-      title: "Broccoli",
+      title: "Pumpkin",
       description:
-          "A nutritious green vegetable grown in Sri Lanka’s upcountry areas, packed with vitamins and ideal for stir-fries, soups, and healthy meals.",
+          "A nutrient-packed vegetable grown in Sri Lanka’s upcountry areas. With its sweet and earthy flavor, pumpkin is ideal for hearty soups, flavorful curries, and wholesome baked dishes.",
       image:
-          "https://grfresh.us/wp-content/themes/grFreshUS/assets/images/single-products/broccoli.jpg",
+          "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/rockcms/2023-10/pumpkins-mc-231026-73ed4b.jpg",
       price: 750,
     ),
     ProductModel(
       id: 4,
       title: "Tomatoes",
       description:
-          "A juicy and tangy fruit widely used in Sri Lankan cuisine, essential for curries, sambols, and fresh salads.",
+          "A juicy and tangy fruit that forms the backbone of Sri Lankan cuisine. Bursting with flavor, tomatoes are essential for making spicy curries, refreshing sambols, and vibrant salads.",
       image:
-          "https://www.shutterstock.com/image-photo/five-red-fresh-tomatoes-on-260nw-2063680580.jpg",
+          "https://www.haxnicks.co.uk/cdn/shop/articles/tomatoes.jpg?v=1623952431&width=1903",
       price: 200,
     ),
     ProductModel(
       id: 5,
-      title: "Cucumber",
+      title: "Graphes",
       description:
-          "A refreshing vegetable commonly consumed raw in Sri Lanka, used in salads, raitas, and cooling beverages.",
+          "A sweet and succulent fruit cherished for its refreshing taste. Grapes are a delightful snack on their own and also pair beautifully with savory dishes and desserts in Sri Lankan cuisine.",
       image:
-          "https://t4.ftcdn.net/jpg/02/66/68/37/360_F_266683754_wzx9XxeNXKudct2Q3qwQf1PvVaQaKOf6.jpg",
-      price: 250,
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0swHuwra4YZvturZ83eagZR1P0KLYWCefDp6JmlAoNM_meFdYKgNORUi9-UbQqEUjkSs&usqp=CAU",
+      price: 200,
     ),
     ProductModel(
       id: 6,
-      title: "Beetroot",
+      title: "Cucumber",
       description:
-          "A vibrant root vegetable popular in Sri Lanka for its sweet taste, often prepared as a curry, salad, or pickled dish.",
+          "A crisp and hydrating vegetable, often enjoyed raw in Sri Lanka. Cucumbers add a refreshing crunch to salads, raitas, and cooling beverages, making them a summer favorite.",
       image:
-          "https://www.lovefoodhatewaste.com/sites/default/files/styles/twitter_card_image/public/2022-07/Beetroot.jpg.webp?itok=tRzMckrQ",
+          "https://www.growforagecookferment.com/wp-content/uploads/2023/08/preserve-cucumbers-featured.jpg",
+      price: 250,
+    ),
+    ProductModel(
+      id: 7,
+      title: "Corn Seeds",
+      description:
+          "Seeds from the golden kernels of corn, known for their natural sweetness and versatility. Corn seeds are used to grow this beloved crop, which is a key ingredient in curries, salads, and pickled dishes.",
+      image:
+          "https://www.organic-heirloom-seed.com/cdn/shop/products/71Chw7hg7qL._AC_SL1000.jpg?v=1608579951",
+      price: 300,
+    ),
+    ProductModel(
+      id: 8,
+      title: "Green Apple",
+      description:
+          "A crisp and tangy fruit with a refreshing flavor profile. Green apples are a healthy snack option and can also be incorporated into salads, juices, and desserts for a zesty twist.",
+      image:
+          "https://static.toiimg.com/thumb/113333224/113333224.jpg?height=746&width=420&resizemode=76&imgsize=66956",
       price: 300,
     ),
   ];
 
   static List<String> images = [
-    "https://i.pinimg.com/736x/ba/b9/67/bab967df39385b6360ef769fe35893bd.jpg",
-    "https://media.istockphoto.com/id/857145602/photo/vegetables-and-fruits-large-overhead-mix-group-on-colorful-background.jpg?s=612x612&w=0&k=20&c=aNvc8jC15g2hO3rSqhSkekjK1DDl5WWn0TgRdw8RDfE=",
-    "https://4.imimg.com/data4/GH/KG/GLADMIN-2301319/fresh-vegetables-product-500x500.png"
+    "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ0nGD8OcJOwFJysQC_SsJRSK-d3co7HGGr2oHvgbr1SOGQHyP0",
+    "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/healthy-vegetables-banner-design-template-21a9d6f7102f16ddd973d540d30bbe83_screen.jpg?ts=1664872225",
+    "https://img.freepik.com/premium-psd/fresh-vegetable-banner-template_88281-5245.jpg"
   ];
 }
