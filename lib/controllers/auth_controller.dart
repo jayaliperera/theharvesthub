@@ -28,12 +28,15 @@ class AuthController {
   }
 
   Future<bool> createAccount(
-      {required String email, required String password}) async {
+      {required String email, required String password, required UserModel model}) async {
     try {
       final userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
+      if (userCredential.user != null) {
+        await addUserData(model);
+      }
       return true;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
