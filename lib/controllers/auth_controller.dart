@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:theharvesthub/models/user_model.dart';
 import 'package:theharvesthub/screens/auth_screen/signin_page.dart';
 import 'package:theharvesthub/screens/home_screen/Home_Page/home_page.dart';
 import 'package:theharvesthub/utills/custom_navigators.dart';
@@ -71,7 +72,7 @@ class AuthController {
     await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
   }
 
-  Future<void> addUserData(User user) async {
-    users.doc(user.uid).set({"uid": user.uid});
+  Future<void> addUserData(UserModel user) async { 
+    await users.doc(user.uid).set(user.toJson());
   }
 }
