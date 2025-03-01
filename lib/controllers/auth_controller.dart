@@ -52,7 +52,7 @@ class AuthController {
       }
       return false;
     } catch (e) {
-      print(e);
+      print('APPLOG :: Error creating user: $e');
       return false;
     }
   }
@@ -82,6 +82,11 @@ class AuthController {
   }
 
   Future<void> addUserData(UserModel user) async { 
+    try{
     await users.doc(user.uid).set(user.toJson());
+    print('APPLOG :: User data added to database');
+  } catch (e) {
+    print('APPLOG :: Error adding user to database: $e');
+  }
   }
 }
