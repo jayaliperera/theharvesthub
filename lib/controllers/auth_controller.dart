@@ -7,10 +7,8 @@ import 'package:theharvesthub/screens/home_screen/Home_Page/home_page.dart';
 import 'package:theharvesthub/utills/custom_navigators.dart';
 import 'package:theharvesthub/providers/auth_provider.dart' as local;
 
-
-
 class AuthController {
-CollectionReference users = FirebaseFirestore.instance.collection('Users');
+  CollectionReference users = FirebaseFirestore.instance.collection('Users');
 
   Future<void> listenAuthState(BuildContext context) async {
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
@@ -72,5 +70,8 @@ CollectionReference users = FirebaseFirestore.instance.collection('Users');
   Future<void> sendPasswordResetEmail(String email) async {
     await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
   }
-}
 
+  Future<void> addUserData(User user) async {
+    users.doc(user.uid).set({"uid": user.uid});
+  }
+}
