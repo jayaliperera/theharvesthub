@@ -28,13 +28,19 @@ class AuthController {
   }
 
   Future<bool> createAccount(
-      {required String email, required String password, required UserModel model}) async {
+      {required String email, required String password, required String name}) async {
     try {
       final userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
       if (userCredential.user != null) {
+        UserModel model = UserModel(
+          email: email,
+          name: name,
+          image: "",
+          uid: userCredential.user!.uid,
+        );
         await addUserData(model);
       }
       return true;
