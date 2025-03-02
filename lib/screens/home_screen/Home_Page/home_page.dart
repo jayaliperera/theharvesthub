@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:theharvesthub/components/custom_texts/custom_text.dart';
 import 'package:theharvesthub/models/product_model.dart';
+import 'package:theharvesthub/providers/auth_provider.dart';
 import 'package:theharvesthub/screens/home_screen/Home_Page/widgets/custom_slider.dart';
 import 'package:theharvesthub/utills/demo_data.dart';
 import 'package:theharvesthub/screens/profile/profile_screen.dart';
@@ -74,8 +76,8 @@ class HomePageContent extends StatelessWidget {
             children: [
               const CustomActionBar(),
               const SizedBox(height: 8),
-              const CustomText(
-                  text: "Hello Jayali",
+               CustomText(
+                  text: "Hello ${Provider.of<AuthProvider>(context).userModel!.name}",
                   fontSize: 20,
                   fontWeight: FontWeight.w600),
               const CustomText(
