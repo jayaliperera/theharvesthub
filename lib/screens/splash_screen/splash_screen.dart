@@ -1,10 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:theharvesthub/controllers/auth_controller.dart';
-import 'package:theharvesthub/screens/auth_screen/signin_page.dart';
-import 'package:theharvesthub/screens/home_screen/Home_Page/home_page.dart';
-import 'package:theharvesthub/utills/custom_navigators.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

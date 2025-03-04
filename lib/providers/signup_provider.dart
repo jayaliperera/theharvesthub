@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:theharvesthub/controllers/auth_controller.dart';
-import 'package:theharvesthub/models/user_model.dart';
 
 class SignupProvider extends ChangeNotifier {
   AuthController authController = AuthController();
@@ -27,7 +26,9 @@ class SignupProvider extends ChangeNotifier {
     } else {
       authController
           .createAccount(
-              email: emailController.text, password: passwordController.text, name:  _nameController.text)
+              email: emailController.text,
+              password: passwordController.text,
+              name: _nameController.text)
           .then(
         (value) {
           if (value) {
