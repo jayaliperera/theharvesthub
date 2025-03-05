@@ -84,9 +84,11 @@ class _SignUpPageState extends State<SignUpPage> {
                   value.startSignUp();
                 },
                 child: CustomButton(
-                    text: "Create Account",
-                    bgColor: Colors.green.shade700,
-                    size: size),
+                  text: "Create Account",
+                  bgColor: Colors.green.shade700,
+                  size: size,
+                  onTap: () {},
+                ),
               ),
               const SizedBox(
                 height: 10,

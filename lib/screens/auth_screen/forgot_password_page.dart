@@ -24,47 +24,48 @@ class _SignUpPageState extends State<ForgotPasswordPage> {
         child: Center(
           child: Consumer<SigninProvider>(builder: (context, value, child) {
             return Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Row(
-                children: [
-                  BackButton(),
-                  CustomText(
-                      text: "Reset Your Password",
-                      fontSize: 25,
-                      fontWeight: FontWeight.w900),
-                ],
-              ),
-              // const SizedBox(
-              //   height: 2,
-              // ),
-              const CustomText(
-                  text: "Insert your email and get password reset email.",
-                  fontSize: 17,
-                  fontWeight: FontWeight.w400),
-              const SizedBox(
-                height: 10,
-              ),
-              CustomTextField(
-                  labelText: "Email",
-                  hintText: "Enter your email",
-                  prefixIcon: const Icon(Icons.email),
-                  controller: value.resetEmailController),
-              const SizedBox(
-                height: 10,
-              ),
-              GestureDetector(
-                onTap: () {
-                  value.sendResetEmail();
-                },
-                child: CustomButton(
-                  size: size,
-                  text: "Send Reset Email",
-                  bgColor: Colors.green.shade700)
-              )
-            ],
-          );
-        }),
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Row(
+                  children: [
+                    BackButton(),
+                    CustomText(
+                        text: "Reset Your Password",
+                        fontSize: 25,
+                        fontWeight: FontWeight.w900),
+                  ],
+                ),
+                // const SizedBox(
+                //   height: 2,
+                // ),
+                const CustomText(
+                    text: "Insert your email and get password reset email.",
+                    fontSize: 17,
+                    fontWeight: FontWeight.w400),
+                const SizedBox(
+                  height: 10,
+                ),
+                CustomTextField(
+                    labelText: "Email",
+                    hintText: "Enter your email",
+                    prefixIcon: const Icon(Icons.email),
+                    controller: value.resetEmailController),
+                const SizedBox(
+                  height: 10,
+                ),
+                GestureDetector(
+                    onTap: () {
+                      value.sendResetEmail();
+                    },
+                    child: CustomButton(
+                      size: size,
+                      text: "Send Reset Email",
+                      bgColor: Colors.green.shade700,
+                      onTap: () {},
+                    ))
+              ],
+            );
+          }),
         ),
       ),
     );

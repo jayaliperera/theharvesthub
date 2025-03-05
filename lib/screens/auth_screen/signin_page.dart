@@ -95,9 +95,11 @@ class _SignInPageState extends State<SignInPage> {
                   value.startSignIn();
                 },
                 child: CustomButton(
-                    text: "Sign in",
-                    bgColor: Colors.green.shade700,
-                    size: size),
+                  text: "Sign in",
+                  bgColor: Colors.green.shade700,
+                  size: size,
+                  onTap: () {},
+                ),
               ),
               const SizedBox(
                 height: 10,
