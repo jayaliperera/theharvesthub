@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:theharvesthub/components/custom_buttons/custom_button.dart';
 import 'package:theharvesthub/components/custom_texts/custom_text.dart';
 import 'package:theharvesthub/providers/cart_provider.dart';
-import 'package:theharvesthub/utills/demo_data.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
@@ -39,7 +38,7 @@ class _CartScreenState extends State<CartScreen> {
                 ),
                 Expanded(
                   child: ListView.builder(
-                    itemCount: DemoData.products.length,
+                    itemCount: value.cartitems.length,
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -82,38 +81,63 @@ class _CartScreenState extends State<CartScreen> {
                                 ],
                               ),
                               const Spacer(),
+                              // ---------------------
                               Container(
-                                height: 35,
-                                width: 80,
+                                width: 90,
+                                height: 40,
                                 decoration: BoxDecoration(
-                                  color:
-                                      const Color.fromARGB(255, 209, 231, 234),
-                                  borderRadius: BorderRadius.circular(35),
-                                  border:
-                                      Border.all(color: Colors.green.shade900),
+                                  color: Colors.amber.shade900,
+                                  borderRadius: BorderRadius.circular(40),
                                 ),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceAround,
                                   children: [
-                                    Icon(
-                                      Icons.remove,
-                                      color: Colors.green.shade900,
+                                    // Decrease Quantity Button
+                                    GestureDetector(
+                                      onTap: () {
+                                        value.decreaseQuantity();
+                                      },
+                                      child: CircleAvatar(
+                                        backgroundColor:
+                                            Colors.black.withOpacity(0.3),
+                                        radius: 15,
+                                        child: const Icon(
+                                          Icons.remove,
+                                          color: Colors.white,
+                                        ),
+                                      ),
                                     ),
-                                    const CustomText(
-                                      text: "1",
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold,
+                                    // Quantity Value
+                                    Text(
+                                      "${value.cartitems[index].quantity}", // Dynamically updates
+                                      style: const TextStyle(
+                                        fontSize: 20,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
-                                    Icon(
-                                      Icons.add,
-                                      color: Colors.green.shade900,
+                                    // Increase Quantity Button
+                                    GestureDetector(
+                                      onTap: () {
+                                        value.increaseQuantity();
+                                      },
+                                      child: CircleAvatar(
+                                        backgroundColor:
+                                            Colors.black.withOpacity(0.2),
+                                        radius: 15,
+                                        child: const Icon(
+                                          Icons.add,
+                                          color: Colors.white,
+                                        ),
+                                      ),
                                     ),
                                   ],
                                 ),
                               ),
+
                               const SizedBox(
-                                width: 10,
+                                width: 5,
                               )
                             ],
                           ),
