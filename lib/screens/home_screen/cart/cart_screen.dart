@@ -19,7 +19,7 @@ class _CartScreenState extends State<CartScreen> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
               const Row(
@@ -155,6 +155,7 @@ class _CartScreenState extends State<CartScreen> {
                       size: size,
                       text: "Buy Now",
                       bgColor: Colors.green.shade800,
+                      onTap: () {},
                     ),
                   ],
                 ),
