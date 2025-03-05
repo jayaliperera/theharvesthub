@@ -87,7 +87,9 @@ class _SignUpPageState extends State<SignUpPage> {
                   text: "Create Account",
                   bgColor: Colors.green.shade700,
                   size: size,
-                  onTap: () {},
+                  onTap: () {
+                    value.startSignUp();
+                  },
                 ),
               ),
               const SizedBox(

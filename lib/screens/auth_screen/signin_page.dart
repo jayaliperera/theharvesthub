@@ -98,7 +98,9 @@ class _SignInPageState extends State<SignInPage> {
                   text: "Sign in",
                   bgColor: Colors.green.shade700,
                   size: size,
-                  onTap: () {},
+                  onTap: () {
+                    value.startSignIn();
+                  },
                 ),
               ),
               const SizedBox(
