@@ -88,6 +88,7 @@ class _ProductViewState extends State<ProductView> {
                     ),
                     const SizedBox(height: 20),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         const Text(
                           "Quantity",
@@ -161,14 +162,26 @@ class _ProductViewState extends State<ProductView> {
                 Positioned(
                   bottom: 5,
                   right: 5,
-                  child: CustomButton(
-                    size: size,
-                    text: "Add To Cart",
-                    bgColor: Colors.amber.shade800,
-                    onTap: () {
-                      value.addToCart(widget.model);
-                    },
-                  ),
+                  left: 5,
+                  child: value.cartitems.any(
+                    (element) => element.model.id == widget.model.id,
+                  )
+                      ? CustomButton(
+                          size: size,
+                          text: "Remove from cart",
+                          bgColor: Colors.red.shade800,
+                          onTap: () {
+                            value.addToCart(widget.model);
+                          },
+                        )
+                      : CustomButton(
+                          size: size,
+                          text: "Add To Cart",
+                          bgColor: Colors.amber.shade800,
+                          onTap: () {
+                            value.addToCart(widget.model);
+                          },
+                        ),
                 )
               ],
             );
