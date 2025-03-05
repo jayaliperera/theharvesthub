@@ -6,7 +6,8 @@ class CustomButton extends StatelessWidget {
       {super.key,
       required this.size,
       required this.text,
-      required this.bgColor});
+      required this.bgColor,
+      required Null Function() onTap});
 
   final Size size;
   final String text;
@@ -20,9 +21,9 @@ class CustomButton extends StatelessWidget {
         height: 45,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10), color: bgColor),
-        child:  Center(
+        child: Center(
           child: CustomText(
-            text:text,
+            text: text,
             fontSize: 20,
             fontWeight: FontWeight.w400,
             color: Colors.white,
