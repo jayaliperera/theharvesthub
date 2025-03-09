@@ -29,8 +29,8 @@ apply plugin: 'com.google.gms.google-services'
 
 android {
     namespace "com.theharvesthub"
-    compileSdkVersion flutter.compileSdkVersion
-    ndkVersion flutter.ndkVersion
+    compileSdkVersion 35
+    ndkVersion "27.0.12077973"
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
