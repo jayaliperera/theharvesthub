@@ -1,7 +1,7 @@
 // cart_screen.dart
 import 'package:flutter/material.dart';
-import 'package:gemhub/screens/checkout_screen/checkout_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:theharvesthub/screens/checkout_screen/checkout_screen.dart';
 
 import 'cart_provider.dart';
 
@@ -19,7 +19,7 @@ class CartScreen extends StatelessWidget {
             flexibleSpace: Container(
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [Colors.blueAccent, Colors.lightBlue],
+                  colors: [Colors.greenAccent, Colors.lightGreen],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
@@ -134,7 +134,7 @@ class CartScreen extends StatelessWidget {
                                         children: [
                                           Container(
                                             decoration: BoxDecoration(
-                                              color: Colors.blue[50],
+                                              color: Colors.green[50],
                                               borderRadius:
                                                   BorderRadius.circular(20),
                                             ),
@@ -218,7 +218,7 @@ class CartScreen extends StatelessWidget {
                               width: double.infinity,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.blue[700],
+                                  backgroundColor: Colors.green[700],
                                   foregroundColor: Colors.white,
                                   padding:
                                       const EdgeInsets.symmetric(vertical: 15),
