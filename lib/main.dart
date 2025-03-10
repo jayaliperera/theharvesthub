@@ -3,20 +3,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:theharvesthub/firebase_options.dart';
-<<<<<<< HEAD
 import 'package:theharvesthub/screens/cart_screen/cart_provider.dart';
 import 'package:theharvesthub/splash_screen.dart';
-=======
-import 'package:theharvesthub/providers/auth_provider.dart';
-import 'package:theharvesthub/providers/cart_provider.dart';
-import 'package:theharvesthub/providers/signin_provider.dart';
-import 'package:theharvesthub/providers/signup_provider.dart';
-import 'package:theharvesthub/screens/splash_screen/splash_screen.dart';
->>>>>>> 683b9c2b73f831ada9936b25e28e8b18ad7c50da
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-<<<<<<< HEAD
   try {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
@@ -69,17 +60,6 @@ Future<void> signInAnonymously() async {
     print('Unexpected error during anonymous sign-in: $e');
     rethrow;
   }
-=======
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(create: (context) => SignupProvider()),
-    ChangeNotifierProvider(create: (context) => SigninProvider()),
-    ChangeNotifierProvider(create: (context) => AuthProvider()),
-    ChangeNotifierProvider(create: (context) => CartProvider())
-  ], child: const MyApp()));
->>>>>>> 683b9c2b73f831ada9936b25e28e8b18ad7c50da
 }
 
 class MyApp extends StatelessWidget {
