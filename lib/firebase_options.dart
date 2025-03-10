@@ -78,11 +78,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions windows = FirebaseOptions(
     apiKey: 'AIzaSyD0euCkJepKNW4aqpY1mKqJhbNf4DYOCwI',
-    appId: '1:590694135686:web:7668578f573dfe21189e07',
+    appId: '1:590694135686:web:b96184d159703edc189e07',
     messagingSenderId: '590694135686',
     projectId: 'harvesthub-mobile-app',
     authDomain: 'harvesthub-mobile-app.firebaseapp.com',
     storageBucket: 'harvesthub-mobile-app.firebasestorage.app',
-    measurementId: 'G-TBFB3BMNM2',
+    measurementId: 'G-7W0W5ZZDW7',
   );
 }
