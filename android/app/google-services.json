@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "590694135686",
-    "project_id": "harvesthub-mobile-app",
-    "storage_bucket": "harvesthub-mobile-app.firebasestorage.app"
+    "project_number": "154424934751",
+    "project_id": "harvesthub-mobile-app-aff8e",
+    "storage_bucket": "harvesthub-mobile-app-aff8e.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:590694135686:android:ea90215d908d1978189e07",
+        "mobilesdk_app_id": "1:154424934751:android:3de5f3f3639d0c7d24f6ea",
         "android_client_info": {
           "package_name": "com.theharvesthub"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAhqAdVVZTvV0PxY9PHeGIMAxlXqWvuESM"
+          "current_key": "AIzaSyAlVTFA8frPCdw0olu3uECgxtp8jiAlLVw"
         }
       ],
       "services": {
